@@ -579,3 +579,59 @@ class JiantMBartModel(JiantBartModel):
 
     def get_mlm_weights_dict(self, weights_dict):
         raise NotImplementedError()
+
+@JiantTransformersModelFactory.register(ModelArchitectures.GPT2)
+class JiantGPT2Model(JiantTransformersModel):
+    def __init__(self, baseObject):
+        super().__init__(baseObject)
+
+    def get_hidden_size(self):
+        #return self.config.d_model
+        return self.config.n_embd
+
+    def get_hidden_dropout_prob(self):
+        #return self.config.dropout
+        return self.config.summary_first_dropout
+
+    def get_feat_spec(self, max_seq_length):
+        # BART is weird
+        # token 0 = '<s>' which is the cls_token
+        # token 1 = '</s>' which is the sep_token
+        # Also two '</s>'s are used between sentences. Yes, not '</s><s>'.
+        return FeaturizationSpec(
+            max_seq_length=max_seq_length,
+            cls_token_at_end=False,
+            pad_on_left=False,
+            cls_token_segment_id=0,
+            pad_token_segment_id=0,
+            pad_token_id=1,  # BART uses pad_token_id = 1
+            pad_token_mask_id=0,
+            sequence_a_segment_id=0,
+            sequence_b_segment_id=0,  # BART has no token_type_ids
+            sep_token_extra=True,
+        )
+
+    def encode(self, input_ids, input_mask, *args):
+        # BART and mBART and encoder-decoder architectures.
+        # As described in the BART paper and implemented in Transformers,
+        # for single input tasks, the encoder input is the sequence,
+        # the decode input is 1-shifted sequence, and the resulting
+        # sentence representation is the final decoder state.
+        # That's what we use for `unpooled` here.
+        dec_last, dec_all, enc_last, enc_all = super().__call__(
+            input_ids=input_ids,
+            attention_mask=input_mask,
+            output_hidden_states=True,
+            return_dict=True,
+        )
+        unpooled = dec_last
+        other = (enc_all + dec_all,)
+
+        bsize, slen = input_ids.shape
+        batch_idx = torch.arange(bsize).to(input_ids.device)
+        # Get last non-pad index
+        pooled = unpooled[batch_idx, slen - input_ids.eq(self.config.pad_token_id).sum(1) - 1]
+        return JiantModelOutput(pooled=pooled, unpooled=unpooled, other=other)
+
+    def get_mlm_weights_dict(self, weights_dict):
+        raise NotImplementedError()
