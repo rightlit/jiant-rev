@@ -65,6 +65,7 @@ class JiantRunner:
     def run_train_context(self, verbose=True):
         print('##### run_train_context() #####')
         train_dataloader_dict = self.get_train_dataloader_dict()
+        print('##### get_train_dataloader_dict() : ', len(train_dataloader_dict))
         train_state = TrainState.from_task_name_list(
             self.jiant_task_container.task_run_config.train_task_list
         )
@@ -95,12 +96,15 @@ class JiantRunner:
             yield train_state
 
     def run_train_step(self, train_dataloader_dict: dict, train_state: TrainState):
+        print('##### run_train_step() #####')
         self.jiant_model.train()
         task_name, task = self.jiant_task_container.task_sampler.pop()
+        print('##### task_sampler.pop() #####')
         task_specific_config = self.jiant_task_container.task_specific_configs[task_name]
 
         loss_val = 0
         for i in range(task_specific_config.gradient_accumulation_steps):
+            print('##### step : ' + i)
             batch, batch_metadata = train_dataloader_dict[task_name].pop()
             batch = batch.to(self.device)
             model_output = wrap_jiant_forward(
