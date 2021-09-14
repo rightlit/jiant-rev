@@ -104,7 +104,7 @@ class JiantRunner:
 
         loss_val = 0
         for i in range(task_specific_config.gradient_accumulation_steps):
-            print('##### step : ' + i)
+            print('##### step : ', i)
             batch, batch_metadata = train_dataloader_dict[task_name].pop()
             batch = batch.to(self.device)
             model_output = wrap_jiant_forward(
