@@ -69,7 +69,7 @@ class JiantRunner:
         print('##### keys() : ', list(train_dataloader_dict.keys()))
         dict_values = np.array(list(train_dataloader_dict.values()))
         print('##### values() : ', dict_values)
-        print('##### values().shape : ', dic_values.shape)
+        print('##### values().shape : ', dict_values.shape)
         train_state = TrainState.from_task_name_list(
             self.jiant_task_container.task_run_config.train_task_list
         )
