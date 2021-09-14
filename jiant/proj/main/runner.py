@@ -66,7 +66,7 @@ class JiantRunner:
         print('##### run_train_context() #####')
         train_dataloader_dict = self.get_train_dataloader_dict()
         print('##### get_train_dataloader_dict() : ', len(train_dataloader_dict))
-        print('##### train_dataloader_dict.keys : ', train_dataloader_dict.keys())
+        print('##### keys() : ', list(train_dataloader_dict.keys()))
         train_state = TrainState.from_task_name_list(
             self.jiant_task_container.task_run_config.train_task_list
         )
