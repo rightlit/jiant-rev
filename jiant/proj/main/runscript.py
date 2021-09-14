@@ -150,6 +150,7 @@ def run_loop(args: RunConfiguration, checkpoint=None):
             metadata={"args": args.to_dict()},
             save_path=os.path.join(args.output_dir, "checkpoint.p"),
         )
+        print('##### do_train #####')
         if args.do_train:
             metarunner = jiant_metarunner.JiantMetarunner(
                 runner=runner,
