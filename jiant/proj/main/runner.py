@@ -15,7 +15,7 @@ from jiant.shared.runner import (
 )
 from jiant.utils.display import maybe_tqdm
 from jiant.utils.python.datastructures import InfiniteYield, ExtendedDataClassMixin
-
+import numpy as np
 
 @dataclass
 class RunnerParameters(ExtendedDataClassMixin):
@@ -67,7 +67,9 @@ class JiantRunner:
         train_dataloader_dict = self.get_train_dataloader_dict()
         print('##### get_train_dataloader_dict() : ', len(train_dataloader_dict))
         print('##### keys() : ', list(train_dataloader_dict.keys()))
-        print('##### values() : ', list(train_dataloader_dict.values()))
+        dict_values = np.array(list(train_dataloader_dict.values()))
+        print('##### values() : ', dict_values)
+        print('##### values().shape : ', dic_values.shape)
         train_state = TrainState.from_task_name_list(
             self.jiant_task_container.task_run_config.train_task_list
         )
