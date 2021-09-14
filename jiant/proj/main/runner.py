@@ -79,8 +79,8 @@ class JiantRunner:
             yield train_state
 
     def resume_train_context(self, train_state, verbose=True):
-       print('##### resume_train_context() #####')
-       train_dataloader_dict = self.get_train_dataloader_dict()
+        print('##### resume_train_context() #####')
+        train_dataloader_dict = self.get_train_dataloader_dict()
         start_position = train_state.global_steps
         for _ in maybe_tqdm(
             range(start_position, self.jiant_task_container.global_train_config.max_steps),
