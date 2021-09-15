@@ -51,9 +51,12 @@ def setup_jiant_model(
         JiantModel nn.Module.
 
     """
+    '''
+    unk_token='[UNK]', sep_token='[SEP]', pad_token='[PAD]', cls_token='[CLS]', mask_token='[MASK]'
+    '''
     hf_model = transformers.AutoModel.from_pretrained(hf_pretrained_model_name_or_path)
     tokenizer = transformers.AutoTokenizer.from_pretrained(
-        hf_pretrained_model_name_or_path, use_fast=False
+        hf_pretrained_model_name_or_path, use_fast=False, unk_token='[UNK]', sep_token='[SEP]', pad_token='[PAD]', cls_token='[CLS]', mask_token='[MASK]'
     )
     encoder = primary.JiantTransformersModelFactory()(hf_model)
     taskmodels_dict = {
