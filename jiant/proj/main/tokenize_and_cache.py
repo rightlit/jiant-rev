@@ -151,7 +151,10 @@ def main(args: RunConfiguration):
     feat_spec = JiantTransformersModelFactory.build_featurization_spec(
         model_type=model_type, max_seq_length=args.max_seq_length,
     )
-    tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=False)
+    #tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=False)
+    tokenizer = AutoTokenizer.from_pretrained(hf_pretrained_model_name_or_path, use_fast=False, unk_token='[UNK]', sep_token='[SEP]', pad_token='[PAD]', cls_token='[CLS]', mask_token='[MASK]')
+ 
+
     if isinstance(args.phases, str):
         phases = args.phases.split(",")
     else:
