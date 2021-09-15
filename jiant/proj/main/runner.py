@@ -112,7 +112,7 @@ class JiantRunner:
             print('##### step : ', i)
             batch, batch_metadata = train_dataloader_dict[task_name].pop()
             print('##### batch.len() : ', len(batch))
-            print('##### batch.keys() : ', batch.keys())
+            #print('##### batch.keys() : ', batch.keys())
             batch = batch.to(self.device)
             model_output = wrap_jiant_forward(
                 jiant_model=self.jiant_model, batch=batch, task=task, compute_loss=True,
