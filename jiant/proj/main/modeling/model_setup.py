@@ -60,7 +60,8 @@ def setup_jiant_model(
     )
     print('##### add_special_tokens() #####')
     #unk_token='[UNK]', sep_token='[SEP]', pad_token='[PAD]', cls_token='[CLS]', mask_token='[MASK]'
-    special_tokens_dict = {'unk_token':'[UNK]', 'sep_token':'[SEP]', 'pad_token':'[PAD]', 'cls_token':'[CLS]', 'mask_token':'[MASK]'}
+    #special_tokens_dict = {'unk_token':'[UNK]', 'sep_token':'[SEP]', 'pad_token':'[PAD]', 'cls_token':'[CLS]', 'mask_token':'[MASK]'}
+    special_tokens_dict = {'unk_token':'<|endoftext|>', 'sep_token':'<|endoftext|>', 'pad_token':'<|endoftext|>', 'cls_token':'<|endoftext|>', 'mask_token':'<|endoftext|>'}
     tokenizer.add_special_tokens(special_tokens_dict)
 
     encoder = primary.JiantTransformersModelFactory()(hf_model)

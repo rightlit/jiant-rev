@@ -589,14 +589,15 @@ class JiantGPT2Model(JiantTransformersModel):
     def normalize_tokenizations(cls, tokenizer, space_tokenization, target_tokenization):
         """See tokenization_normalization.py for details"""
 
-        # BART
-        #modifed_space_tokenization = bow_tag_tokens(space_tokenization)
-        #modifed_target_tokenization = ["Ġ" + target_tokenization[0]] + target_tokenization[1:]
-        #modifed_target_tokenization = process_bytebpe_tokens(modifed_target_tokenization)
-        
-        space_tokenization = [token.lower() for token in space_tokenization]
+        # ROBERTa (BPE)
         modifed_space_tokenization = bow_tag_tokens(space_tokenization)
-        modifed_target_tokenization = process_bytebpe_tokens(target_tokenization)
+        modifed_target_tokenization = ["Ġ" + target_tokenization[0]] + target_tokenization[1:]
+        modifed_target_tokenization = process_bytebpe_tokens(modifed_target_tokenization)
+        
+        # ALBERT (SentencePiece)
+        #space_tokenization = [token.lower() for token in space_tokenization]
+        #modifed_space_tokenization = bow_tag_tokens(space_tokenization)
+        #modifed_target_tokenization = process_sentencepiece_tokens(target_tokenization)
 
         return modifed_space_tokenization, modifed_target_tokenization
 
