@@ -627,8 +627,7 @@ class JiantGPT2Model(JiantTransformersModel):
             sep_token_extra=False,
         )
 
-    # no overrride
-    '''
+    # BART
     def encode(self, input_ids, input_mask, *args):
         # BART and mBART and encoder-decoder architectures.
         # As described in the BART paper and implemented in Transformers,
@@ -650,7 +649,6 @@ class JiantGPT2Model(JiantTransformersModel):
         # Get last non-pad index
         pooled = unpooled[batch_idx, slen - input_ids.eq(self.config.pad_token_id).sum(1) - 1]
         return JiantModelOutput(pooled=pooled, unpooled=unpooled, other=other)
-    '''
 
     def get_mlm_weights_dict(self, weights_dict):
         raise NotImplementedError()
