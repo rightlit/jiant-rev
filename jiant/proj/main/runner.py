@@ -113,6 +113,8 @@ class JiantRunner:
             batch, batch_metadata = train_dataloader_dict[task_name].pop()
             print('##### batch.len() : ', len(batch))
             print('##### type(batch) : ', type(batch))
+            print('##### batch.input_ids : ', batch.input_ids)
+            print('##### batch.label_id : ', batch.label_id)
             if(i == 0):
                 print('##### batch : ', batch)
             batch = batch.to(self.device)
