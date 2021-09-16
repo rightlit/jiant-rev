@@ -142,7 +142,6 @@ def iter_chunk_and_save(task, phase, examples, feat_spec, tokenizer, args: RunCo
             path=os.path.join(args.output_dir, phase, "smart_truncate.json"),
         )
 
-
 def main(args: RunConfiguration):
     config = AutoConfig.from_pretrained(args.hf_pretrained_model_name_or_path)
     model_type = config.model_type
@@ -153,10 +152,10 @@ def main(args: RunConfiguration):
     )
     #tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=False)
     print('##### AutoTokenizer.from_pretrained() #####')
-    tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=False, unk_token='[UNK]', sep_token='[SEP]', pad_token='[PAD]', cls_token='[CLS]', mask_token='[MASK]')
+    tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=False)
 
     print('##### add_special_tokens() #####')
-    special_tokens_dict = {unk_token='[UNK]', sep_token='[SEP]', pad_token='[PAD]', cls_token='[CLS]', mask_token='[MASK]'}
+    special_tokens_dict = {'unk_token'='[UNK]', 'sep_token'='[SEP]', 'pad_token'='[PAD]', 'cls_token'='[CLS]', 'mask_token'='[MASK]'}
     tokenizer.add_special_tokens(special_tokens_dict)
 
     if isinstance(args.phases, str):
