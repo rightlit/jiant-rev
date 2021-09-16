@@ -118,8 +118,8 @@ class JiantRunner:
                 print('##### batch.input_ids.shape : ', batch.input_ids.shape)
                 print('##### batch.input_mask.shape : ', batch.input_mask.shape)
                 print('##### batch.segment_ids.shape : ', batch.segment_ids.shape)
-                print('##### batch.label_id.shape : ', batch.label_id.shape)
-                print('##### batch.tokens.shape : ', batch.tokens.shape)
+                print('##### batch.label_id.shape : ', np.array(batch.label_id).shape)
+                print('##### batch.tokens.shape : ', np.array(batch.tokens).shape)
             batch = batch.to(self.device)
             model_output = wrap_jiant_forward(
                 jiant_model=self.jiant_model, batch=batch, task=task, compute_loss=True,
