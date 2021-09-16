@@ -78,8 +78,11 @@ class ClassificationModel(Taskmodel):
         super().__init__(task=task, encoder=encoder, head=head)
 
     def forward(self, batch, tokenizer, compute_loss: bool = False):
+        #encoder_output = self.encoder.encode(
+        #    input_ids=batch.input_ids, segment_ids=batch.segment_ids, input_mask=batch.input_mask,
+        #)
         encoder_output = self.encoder.encode(
-            input_ids=batch.input_ids, segment_ids=batch.segment_ids, input_mask=batch.input_mask,
+            input_ids=batch.input_ids, input_mask=batch.input_mask,
         )
         logits = self.head(pooled=encoder_output.pooled)
         if compute_loss:
