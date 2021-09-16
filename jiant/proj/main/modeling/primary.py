@@ -588,13 +588,15 @@ class JiantGPT2Model(JiantTransformersModel):
     @classmethod
     def normalize_tokenizations(cls, tokenizer, space_tokenization, target_tokenization):
         """See tokenization_normalization.py for details"""
-        modifed_space_tokenization = bow_tag_tokens(space_tokenization)
-        modifed_target_tokenization = ["Ġ" + target_tokenization[0]] + target_tokenization[1:]
-        modifed_target_tokenization = process_bytebpe_tokens(modifed_target_tokenization)
-        
-        #space_tokenization = [token.lower() for token in space_tokenization]
+
+        # BART
         #modifed_space_tokenization = bow_tag_tokens(space_tokenization)
-        #modifed_target_tokenization = process_bytebpe_tokens(target_tokenization)
+        #modifed_target_tokenization = ["Ġ" + target_tokenization[0]] + target_tokenization[1:]
+        #modifed_target_tokenization = process_bytebpe_tokens(modifed_target_tokenization)
+        
+        space_tokenization = [token.lower() for token in space_tokenization]
+        modifed_space_tokenization = bow_tag_tokens(space_tokenization)
+        modifed_target_tokenization = process_bytebpe_tokens(target_tokenization)
 
         return modifed_space_tokenization, modifed_target_tokenization
 
@@ -624,6 +626,7 @@ class JiantGPT2Model(JiantTransformersModel):
             sep_token_extra=False,
         )
 
+    # no overrride
     '''
     def encode(self, input_ids, input_mask, *args):
         # BART and mBART and encoder-decoder architectures.
@@ -647,6 +650,6 @@ class JiantGPT2Model(JiantTransformersModel):
         pooled = unpooled[batch_idx, slen - input_ids.eq(self.config.pad_token_id).sum(1) - 1]
         return JiantModelOutput(pooled=pooled, unpooled=unpooled, other=other)
     '''
-    
+
     def get_mlm_weights_dict(self, weights_dict):
         raise NotImplementedError()
