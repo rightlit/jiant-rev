@@ -109,10 +109,11 @@ class JiantRunner:
 
         loss_val = 0
         for i in range(task_specific_config.gradient_accumulation_steps):
-            print('##### step : ', i)
+            #print('##### step : ', i)
             batch, batch_metadata = train_dataloader_dict[task_name].pop()
-            print('##### batch.len() : ', len(batch))
-            print('##### type(batch) : ', type(batch))
+            #print('##### batch.len() : ', len(batch))
+            #print('##### type(batch) : ', type(batch))
+            '''
             if(i == 0):
                 #print('##### batch : ', batch)
                 print('##### batch.input_ids.shape : ', batch.input_ids.shape)
@@ -120,6 +121,7 @@ class JiantRunner:
                 print('##### batch.segment_ids.shape : ', batch.segment_ids.shape)
                 print('##### batch.label_id.shape : ', np.array(batch.label_id).shape)
                 print('##### batch.tokens.shape : ', np.array(batch.tokens).shape)
+            '''
             batch = batch.to(self.device)
             model_output = wrap_jiant_forward(
                 jiant_model=self.jiant_model, batch=batch, task=task, compute_loss=True,
