@@ -101,10 +101,10 @@ class JiantRunner:
             yield train_state
 
     def run_train_step(self, train_dataloader_dict: dict, train_state: TrainState):
-        print('##### run_train_step() #####')
+        #print('##### run_train_step() #####')
         self.jiant_model.train()
         task_name, task = self.jiant_task_container.task_sampler.pop()
-        print('##### task_sampler.pop() #####')
+        #print('##### task_sampler.pop() #####')
         task_specific_config = self.jiant_task_container.task_specific_configs[task_name]
 
         loss_val = 0

@@ -48,7 +48,9 @@ def copy_state_dict(state_dict, target_device=None):
         new_state_dict = {}
         unique_dict = {}
         for k, v in copied_state_dict.items():
+            print('##### k, v : ', k,v)
             unique_key = tuple(v.shape), v.data_ptr()
+            print('##### unique_key : ', unique_key)
             if unique_key not in unique_dict:
                 unique_dict[unique_key] = v.to(target_device)
             # Create a view
