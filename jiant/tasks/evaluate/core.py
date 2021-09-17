@@ -244,11 +244,8 @@ class BaseLogitsEvaluationScheme(BaseEvaluationScheme):
     def get_labels_from_cache_and_examples(self, task, cache, examples):
         return get_label_ids_from_cache(cache=cache)
 
-    # implementation modified 
     def get_preds_from_accumulator(self, task, accumulator):
-        #raise NotImplementedError()
-        logits = accumulator.get_accumulated()
-        return np.argmax(logits, axis=1)
+        raise NotImplementedError()
 
     def compute_metrics_from_accumulator(
         self, task, accumulator: ConcatenateLogitsAccumulator, tokenizer, labels: list
@@ -363,6 +360,7 @@ class MCCEvaluationScheme(BaseLogitsEvaluationScheme):
     @classmethod
     def compute_metrics_from_preds_and_labels(cls, preds, labels):
         mcc = matthews_corrcoef(labels, preds)
+        print('##### compute_metrics_from_preds_and_labels(), mcc: ', mcc, labels, preds)
         return Metrics(major=mcc, minor={"mcc": mcc})
 
 
