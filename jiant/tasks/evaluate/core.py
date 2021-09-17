@@ -244,8 +244,11 @@ class BaseLogitsEvaluationScheme(BaseEvaluationScheme):
     def get_labels_from_cache_and_examples(self, task, cache, examples):
         return get_label_ids_from_cache(cache=cache)
 
+    # implementation modified 
     def get_preds_from_accumulator(self, task, accumulator):
-        raise NotImplementedError()
+        #raise NotImplementedError()
+        logits = accumulator.get_accumulated()
+        return np.argmax(logits, axis=1)
 
     def compute_metrics_from_accumulator(
         self, task, accumulator: ConcatenateLogitsAccumulator, tokenizer, labels: list
