@@ -114,7 +114,7 @@ class JiantRunner:
             print('##### batch.len() : ', len(batch))
             print('##### type(batch) : ', type(batch))
             if(i == 0):
-                print('##### batch : ', batch)
+                #print('##### batch : ', batch)
                 print('##### batch.input_ids.shape : ', batch.input_ids.shape)
                 print('##### batch.input_mask.shape : ', batch.input_mask.shape)
                 print('##### batch.segment_ids.shape : ', batch.segment_ids.shape)
