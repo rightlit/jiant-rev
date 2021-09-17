@@ -361,7 +361,7 @@ class MCCEvaluationScheme(BaseLogitsEvaluationScheme):
     def compute_metrics_from_preds_and_labels(cls, preds, labels):
         mcc = matthews_corrcoef(labels, preds)
         print('##### compute_metrics_from_preds_and_labels(), mcc: ', mcc, labels, preds)
-        print('##### labels.shape: ', labels.shape, 'preds.shape: ', preds.shape)
+        print('##### labels.shape: ', np.array(labels).shape, 'preds.shape: ', np.array(preds).shape)
         #print('##### labels: ', len(labels), 'len(preds): ', len(preds))
         return Metrics(major=mcc, minor={"mcc": mcc})
 
