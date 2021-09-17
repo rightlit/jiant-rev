@@ -355,6 +355,7 @@ class AccAndF1EvaluationScheme(BaseLogitsEvaluationScheme):
 class MCCEvaluationScheme(BaseLogitsEvaluationScheme):
     def get_preds_from_accumulator(self, task, accumulator):
         logits = accumulator.get_accumulated()
+        print('##### get_accumulated(), logits : ', logits)
         return np.argmax(logits, axis=1)
 
     @classmethod
