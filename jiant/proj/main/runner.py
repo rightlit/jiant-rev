@@ -67,7 +67,7 @@ class JiantRunner:
         train_dataloader_dict = self.get_train_dataloader_dict()
         print('##### get_train_dataloader_dict() : ', len(train_dataloader_dict))
         #print('##### keys() : ', list(train_dataloader_dict.keys()))
-        print('##### values() : ', train_dataloader_dict['cola'])
+        #print('##### values() : ', train_dataloader_dict['cola'])
         #dict_values = np.array(list(train_dataloader_dict.values()))
         #print('##### values() : ', dict_values)
         #print('##### values().shape : ', dict_values.shape)
