@@ -154,7 +154,7 @@ def main(args: RunConfiguration):
     print('##### AutoTokenizer.from_pretrained() #####')
     tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=False)
 
-    if('gpt' in hf_pretrained_model_name_or_path):
+    if('gpt' in args.hf_pretrained_model_name_or_path):
         print('##### add_special_tokens() #####')
         special_tokens_dict = {'unk_token':'<|endoftext|>', 'sep_token':'<|endoftext|>', 'pad_token':'<|endoftext|>', 'cls_token':'<|endoftext|>', 'mask_token':'<|endoftext|>'}
         tokenizer.add_special_tokens(special_tokens_dict)
