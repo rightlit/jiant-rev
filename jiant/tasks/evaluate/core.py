@@ -261,12 +261,17 @@ class SimpleAccuracyEvaluationScheme(BaseLogitsEvaluationScheme):
     @classmethod
     def get_preds_from_accumulator(cls, task, accumulator):
         logits = accumulator.get_accumulated()
+        print('##### get_accumulated(), logits : ', logits)
+
         return np.argmax(logits, axis=1)
 
     @classmethod
     def compute_metrics_from_preds_and_labels(cls, preds, labels):
         # noinspection PyUnresolvedReferences
         acc = float((preds == labels).mean())
+        print('##### compute_metrics_from_preds_and_labels(), acc: ', mcc, labels, preds)
+        print('##### labels.shape: ', np.array(labels).shape, 'preds.shape: ', np.array(preds).shape)
+
         return Metrics(major=acc, minor={"acc": acc})
 
 
