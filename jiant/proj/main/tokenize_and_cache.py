@@ -154,11 +154,11 @@ def main(args: RunConfiguration):
     print('##### AutoTokenizer.from_pretrained() #####')
     tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=False)
 
-    print('##### add_special_tokens() #####')
-    #special_tokens_dict = {'unk_token':'[UNK]', 'sep_token':'[SEP]', 'pad_token':'[PAD]', 'cls_token':'[CLS]', 'mask_token':'[MASK]'}
-    special_tokens_dict = {'unk_token':'<|endoftext|>', 'sep_token':'<|endoftext|>', 'pad_token':'<|endoftext|>', 'cls_token':'<|endoftext|>', 'mask_token':'<|endoftext|>'}
-    tokenizer.add_special_tokens(special_tokens_dict)
-
+    if('gpt' in hf_pretrained_model_name_or_path):
+        print('##### add_special_tokens() #####')
+        special_tokens_dict = {'unk_token':'<|endoftext|>', 'sep_token':'<|endoftext|>', 'pad_token':'<|endoftext|>', 'cls_token':'<|endoftext|>', 'mask_token':'<|endoftext|>'}
+        tokenizer.add_special_tokens(special_tokens_dict)
+        
     if isinstance(args.phases, str):
         phases = args.phases.split(",")
     else:
