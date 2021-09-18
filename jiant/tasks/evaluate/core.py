@@ -269,7 +269,7 @@ class SimpleAccuracyEvaluationScheme(BaseLogitsEvaluationScheme):
     def compute_metrics_from_preds_and_labels(cls, preds, labels):
         # noinspection PyUnresolvedReferences
         acc = float((preds == labels).mean())
-        print('##### compute_metrics_from_preds_and_labels(), acc: ', mcc, labels, preds)
+        print('##### compute_metrics_from_preds_and_labels(), acc: ', acc, labels, preds)
         print('##### labels.shape: ', np.array(labels).shape, 'preds.shape: ', np.array(preds).shape)
 
         return Metrics(major=acc, minor={"acc": acc})
