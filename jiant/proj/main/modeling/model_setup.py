@@ -55,9 +55,9 @@ def setup_jiant_model(
 
     hf_model = transformers.AutoModel.from_pretrained(hf_pretrained_model_name_or_path)
     print('##### AutoTokenizer.from_pretrained() #####')
-    tokenizer = transformers.AutoTokenizer.from_pretrained(
-        hf_pretrained_model_name_or_path, use_fast=False
-    )
+    #tokenizer = transformers.AutoTokenizer.from_pretrained(hf_pretrained_model_name_or_path, use_fast=False)
+    # use_fast=True
+    tokenizer = transformers.AutoTokenizer.from_pretrained(hf_pretrained_model_name_or_path, use_fast=True)
     if('gpt' in hf_pretrained_model_name_or_path):
         print('##### add_special_tokens() #####')
         special_tokens_dict = {'unk_token':'<|endoftext|>', 'sep_token':'<|endoftext|>', 'pad_token':'<|endoftext|>', 'cls_token':'<|endoftext|>', 'mask_token':'<|endoftext|>'}
