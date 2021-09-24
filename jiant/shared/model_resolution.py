@@ -16,6 +16,7 @@ class ModelArchitectures(Enum):
     ELECTRA = "electra"
     DEBERTAV2 = "deberta-v2"
     GPT2 = "gpt2"
+    GPT2FAST = "gpt2fast"
 
     @classmethod
     def from_model_type(cls, model_type: str):
@@ -40,6 +41,7 @@ TOKENIZER_CLASS_DICT = BiDict(
         ModelArchitectures.ELECTRA: transformers.ElectraTokenizer,
         ModelArchitectures.DEBERTAV2: transformers.DebertaV2Tokenizer,
         ModelArchitectures.GPT2: transformers.GPT2Tokenizer,
+        ModelArchitectures.GPT2FAST: transformers.GPT2TokenizerFast,
     }
 )
 
