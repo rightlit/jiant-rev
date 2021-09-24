@@ -581,6 +581,7 @@ class JiantMBartModel(JiantBartModel):
         raise NotImplementedError()
 
 @JiantTransformersModelFactory.register(ModelArchitectures.GPT2)
+@JiantTransformersModelFactory.register(ModelArchitectures.GPT2FAST)
 class JiantGPT2Model(JiantTransformersModel):
     def __init__(self, baseObject):
         super().__init__(baseObject)
