@@ -27,7 +27,13 @@ def convert_hf_dataset_to_examples(
     """
 
     print('##### load_dataset(), path=', path, ', name=', name)
-    dataset = datasets.load_dataset(path=path, name=name, version=version)
+    #dataset = datasets.load_dataset(path=path, name=name, version=version)
+    if(name == 'cola')
+        dataset = load_dataset('csv', 
+            data_files={'train': '/content/NIKL_CoLA_train.tsv', 'val': '/content/NIKL_CoLA_dev.tsv', 'test': '/content/NIKL_CoLA_test.tsv'}, 
+            delimiter='\t',
+            column_names =['source',	'acceptability_label',	'source_annotation',	'sentence'])
+
     if phase_map:
         for old_phase_name, new_phase_name in phase_map.items():
             replace_key(dataset, old_key=old_phase_name, new_key=new_phase_name)
