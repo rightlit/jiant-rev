@@ -113,6 +113,7 @@ def set_dict_keys(d: dict, key_list: list):
 
 def replace_key(d: dict, old_key, new_key, exist_ok=False):
     """Replace an old key with a new key (in-place)"""
+    print('##### in replace_key(), old_key:', old_key, 'new_key:', new_key)
     if not exist_ok:
         assert new_key not in d
     d[new_key] = d.pop(old_key)
