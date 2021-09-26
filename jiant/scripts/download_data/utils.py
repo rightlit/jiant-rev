@@ -45,6 +45,7 @@ def convert_hf_dataset_to_examples(
         for raw_example in dataset[phase]:
             if field_map:
                 for old_field_name, new_field_name in field_map.items():
+                    print('##### replace_key(), old_key:', old_field_name, 'new_key:', new_field_name)
                     replace_key(raw_example, old_key=old_field_name, new_key=new_field_name)
             if label_map and "label" in raw_example:
                 # Optionally use an dict or function to map labels
