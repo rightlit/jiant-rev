@@ -57,6 +57,7 @@ def download_data(task_names, output_base_path):
         task_data_path = os.path.join(task_data_base_path, task_name)
 
         if task_name in HF_DATASETS_TASKS:
+            print('##### hf_datasets_tasks_download, task_name: ', task_name, ', task_data_path: ', task_data_path)
             hf_datasets_tasks_download.download_data_and_write_config(
                 task_name=task_name,
                 task_data_path=task_data_path,
