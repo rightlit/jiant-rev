@@ -44,6 +44,13 @@ def convert_hf_dataset_to_examples(
             delimiter='\t',
             column_names =['idx', 'premise',	'question',	'choice1',	'choice2', 'label'],
             skiprows=1)
+    elif(name == 'wic'):
+        # column_names =['ID', 'Target',	'SENTENCE1',	'SENTENCE2',	'ANSWER', 'start_s1', 'end_s1', 'start_s2', 'end_s2']
+        dataset = datasets.load_dataset('csv', 
+            data_files={'train': '/content/NIKL_SKT_WiC_Train.tsv', 'validation': '/content/NIKL_SKT_WiC_Dev.tsv'}, 
+            delimiter='\t',
+            column_names =['idx', 'word',	'sentence1',	'sentence2',	'label', 'start1', 'end1', 'start2', 'end2'],
+            skiprows=1)
     else:
         dataset = datasets.load_dataset(path=path, name=name, version=version)
 
