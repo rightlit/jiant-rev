@@ -39,9 +39,13 @@ class CopaTask(SuperGlueMixin, mc_template.AbstractMultipleChoiceTask):
     CHOICE_TO_ID, ID_TO_CHOICE = labels_to_bimap(CHOICE_KEYS)
     NUM_CHOICES = len(CHOICE_KEYS)
 
+    #_QUESTION_DICT = {
+    #    "cause": "What was the cause of this?",
+    #    "effect": "What happened as a result?",
+    #}
     _QUESTION_DICT = {
-        "cause": "What was the cause of this?",
-        "effect": "What happened as a result?",
+        "원인": "What was the cause of this?",
+        "결과": "What happened as a result?",
     }
 
     def get_train_examples(self):
