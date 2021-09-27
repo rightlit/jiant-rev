@@ -77,8 +77,14 @@ class BoolQTask(SuperGlueMixin, Task):
     Batch = Batch
 
     TASK_TYPE = TaskTypes.CLASSIFICATION
-    #LABELS = [False, True]
-    LABELS = [0, 1]
+    
+    is_ko_model = False
+    #is_ko_model = True
+
+    LABELS = [False, True]
+    if(is_ko_model):
+        LABELS = [0, 1]
+    
     LABEL_TO_ID, ID_TO_LABEL = labels_to_bimap(LABELS)
 
     def get_train_examples(self):
