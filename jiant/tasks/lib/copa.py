@@ -61,7 +61,8 @@ class CopaTask(SuperGlueMixin, mc_template.AbstractMultipleChoiceTask):
     def _create_examples(cls, lines, set_type):
         examples = []
         for line in lines:
-            question = cls._QUESTION_DICT[line["question"]]
+            #question = cls._QUESTION_DICT[line["question"]]
+            question = cls._QUESTION_DICT[line["question"].strip()]
             examples.append(
                 Example(
                     # NOTE: CopaTask.super_glue_format_preds() is dependent on this guid format.
