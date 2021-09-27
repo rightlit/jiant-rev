@@ -25,39 +25,43 @@ def convert_hf_dataset_to_examples(
     Returns:
         Dict[phase] -> list[examples]
     """
-    # for cola
-    # column_names =['source',	'acceptability_label',	'source_annotation',	'sentence'])
+
+    is_ko_model = False
+    #is_ko_model = True
 
     print('##### load_dataset(), path=', path, ', name=', name)
     #dataset = datasets.load_dataset(path=path, name=name, version=version)
-    if(name == 'cola'):
-        # column_names =['source',	'acceptability_label',	'source_annotation',	'sentence']
-        dataset = datasets.load_dataset('csv', 
-            data_files={'train': '/content/NIKL_CoLA_train.tsv', 'validation': '/content/NIKL_CoLA_dev.tsv'}, 
-            delimiter='\t',
-            column_names =['source',	'label',	'source_annotation',	'sentence'],
-            skiprows=1)
-    elif(name == 'copa'):
-        # column_names =['ID', 'sentence',	'question',	'1',	'2', 'Answer']
-        dataset = datasets.load_dataset('csv', 
-            data_files={'train': '/content/SKT_COPA_Train.tsv', 'validation': '/content/SKT_COPA_Dev.tsv'}, 
-            delimiter='\t',
-            column_names =['idx', 'premise',	'question',	'choice1',	'choice2', 'label'],
-            skiprows=1)
-    elif(name == 'wic'):
-        # column_names =['ID', 'Target',	'SENTENCE1',	'SENTENCE2',	'ANSWER', 'start_s1', 'end_s1', 'start_s2', 'end_s2']
-        dataset = datasets.load_dataset('csv', 
-            data_files={'train': '/content/NIKL_SKT_WiC_Train.tsv', 'validation': '/content/NIKL_SKT_WiC_Dev.tsv'}, 
-            delimiter='\t',
-            column_names =['idx', 'word',	'sentence1',	'sentence2',	'label', 'start1', 'end1', 'start2', 'end2'],
-            skiprows=1)
-    elif(name == 'boolq'):
-        # column_names =['ID', 'Text',	'Question',	'Answer']
-        dataset = datasets.load_dataset('csv', 
-            data_files={'train': '/content/SKT_BoolQ_Train.tsv', 'validation': '/content/SKT_BoolQ_Dev.tsv'}, 
-            delimiter='\t',
-            column_names =['idx', 'passage',	'question',	'label'],
-            skiprows=1)
+    if(is_ko_model):
+        if(name == 'cola'):
+            # column_names =['source',	'acceptability_label',	'source_annotation',	'sentence']
+            dataset = datasets.load_dataset('csv', 
+                data_files={'train': '/content/NIKL_CoLA_train.tsv', 'validation': '/content/NIKL_CoLA_dev.tsv'}, 
+                delimiter='\t',
+                column_names =['source',	'label',	'source_annotation',	'sentence'],
+                skiprows=1)
+        elif(name == 'copa'):
+            # column_names =['ID', 'sentence',	'question',	'1',	'2', 'Answer']
+            dataset = datasets.load_dataset('csv', 
+                data_files={'train': '/content/SKT_COPA_Train.tsv', 'validation': '/content/SKT_COPA_Dev.tsv'}, 
+                delimiter='\t',
+                column_names =['idx', 'premise',	'question',	'choice1',	'choice2', 'label'],
+                skiprows=1)
+        elif(name == 'wic'):
+            # column_names =['ID', 'Target',	'SENTENCE1',	'SENTENCE2',	'ANSWER', 'start_s1', 'end_s1', 'start_s2', 'end_s2']
+            dataset = datasets.load_dataset('csv', 
+                data_files={'train': '/content/NIKL_SKT_WiC_Train.tsv', 'validation': '/content/NIKL_SKT_WiC_Dev.tsv'}, 
+                delimiter='\t',
+                column_names =['idx', 'word',	'sentence1',	'sentence2',	'label', 'start1', 'end1', 'start2', 'end2'],
+                skiprows=1)
+        elif(name == 'boolq'):
+            # column_names =['ID', 'Text',	'Question',	'Answer']
+            dataset = datasets.load_dataset('csv', 
+                data_files={'train': '/content/SKT_BoolQ_Train.tsv', 'validation': '/content/SKT_BoolQ_Dev.tsv'}, 
+                delimiter='\t',
+                column_names =['idx', 'passage',	'question',	'label'],
+                skiprows=1)
+        else:
+            print('unsupported ko_model')
     else:
         dataset = datasets.load_dataset(path=path, name=name, version=version)
 
