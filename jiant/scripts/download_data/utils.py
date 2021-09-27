@@ -40,7 +40,7 @@ def convert_hf_dataset_to_examples(
     elif(name == 'copa'):
         # column_names =['ID', 'sentence',	'question',	'1',	'2', 'Answer']
         dataset = datasets.load_dataset('csv', 
-            data_files={'train': '/content/NIKL_CoLA_train.tsv', 'validation': '/content/NIKL_CoLA_dev.tsv'}, 
+            data_files={'train': '/content/SKT_COPA_Train.tsv', 'validation': '/content/SKT_COPA_Dev.tsv'}, 
             delimiter='\t',
             column_names =['idx', 'premise',	'question',	'choice1',	'choice2', 'label'],
             skiprows=1)
