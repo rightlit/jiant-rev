@@ -44,6 +44,8 @@ def convert_hf_dataset_to_examples(
             delimiter='\t',
             column_names =['idx', 'premise',	'question',	'choice1',	'choice2', 'label'],
             skiprows=1)
+    else:
+        dataset = datasets.load_dataset(path=path, name=name, version=version)
 
     if phase_map:
         for old_phase_name, new_phase_name in phase_map.items():
