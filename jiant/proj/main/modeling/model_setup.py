@@ -174,7 +174,7 @@ def load_encoder_from_transformers_weights(
     model_arch = ModelArchitectures.from_model_type(model_type=encoder.config.model_type)
     encoder_prefix = model_arch.get_encoder_prefix() + "."
     print('##### encoder_prefix:', encoder_prefix)
-    if(encoder_prefix.startwith('gpt2')):
+    if(encoder_prefix.startswith('gpt2')):
         encoder_prefix = 'transformer.'
     # Encoder
     for k, v in weights_dict.items():
