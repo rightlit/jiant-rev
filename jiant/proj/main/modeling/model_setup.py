@@ -174,6 +174,7 @@ def load_encoder_from_transformers_weights(
     encoder_prefix = model_arch.get_encoder_prefix() + "."
     # Encoder
     for k, v in weights_dict.items():
+        print('##### k : ', k)
         if k.startswith(encoder_prefix):
             load_weights_dict[strings.remove_prefix(k, encoder_prefix)] = v
         elif k.startswith(encoder_prefix.split("-")[0]):
