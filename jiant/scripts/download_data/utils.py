@@ -51,6 +51,13 @@ def convert_hf_dataset_to_examples(
             delimiter='\t',
             column_names =['idx', 'word',	'sentence1',	'sentence2',	'label', 'start1', 'end1', 'start2', 'end2'],
             skiprows=1)
+    elif(name == 'boolq'):
+        # column_names =['ID', 'Text',	'Question',	'Answer']
+        dataset = datasets.load_dataset('csv', 
+            data_files={'train': '/content/SKT_BoolQ_Train.tsv', 'validation': '/content/SKT_BoolQ_Dev.tsv'}, 
+            delimiter='\t',
+            column_names =['idx', 'passage',	'question',	'label'],
+            skiprows=1)
     else:
         dataset = datasets.load_dataset(path=path, name=name, version=version)
 
