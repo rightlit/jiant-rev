@@ -216,7 +216,7 @@ class JiantTransformersModel(metaclass=abc.ABCMeta):
             other=output.hidden_states,
         )
 
-
+'''
 @JiantTransformersModelFactory.register(ModelArchitectures.BERT)
 class JiantBertModel(JiantTransformersModel):
     def __init__(self, baseObject):
@@ -258,6 +258,7 @@ class JiantBertModel(JiantTransformersModel):
         }
         mlm_weights_dict = {new_k: weights_dict[old_k] for new_k, old_k in mlm_weights_map.items()}
         return mlm_weights_dict
+'''
 
 # added : KOBERT
 @JiantTransformersModelFactory.register(ModelArchitectures.KOBERT)
