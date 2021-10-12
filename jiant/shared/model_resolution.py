@@ -7,6 +7,7 @@ import transformers
 
 class ModelArchitectures(Enum):
     BERT = "bert"
+    KOBERT = "kobert"
     XLM = "xlm"
     ROBERTA = "roberta"
     ALBERT = "albert"
@@ -32,6 +33,7 @@ class ModelArchitectures(Enum):
 TOKENIZER_CLASS_DICT = BiDict(
     {
         ModelArchitectures.BERT: transformers.BertTokenizer,
+        ModelArchitectures.KOBERT: transformers.XLNetTokenizer,
         ModelArchitectures.XLM: transformers.XLMTokenizer,
         ModelArchitectures.ROBERTA: transformers.RobertaTokenizer,
         ModelArchitectures.XLM_ROBERTA: transformers.XLMRobertaTokenizer,
