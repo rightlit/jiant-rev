@@ -26,12 +26,13 @@ def convert_hf_dataset_to_examples(
         Dict[phase] -> list[examples]
     """
 
-    is_ko_model = False
-    #is_ko_model = True
+    #is_ko_model = False
+    is_ko_model = True
 
     print('##### load_dataset(), path=', path, ', name=', name)
     #dataset = datasets.load_dataset(path=path, name=name, version=version)
     if(is_ko_model):
+        print('##### is_ko_model : ', is_ko_model)
         if(name == 'cola'):
             # column_names =['source',	'acceptability_label',	'source_annotation',	'sentence']
             dataset = datasets.load_dataset('csv', 
