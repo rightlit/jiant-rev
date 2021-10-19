@@ -32,7 +32,7 @@ class ModelArchitectures(Enum):
 
 TOKENIZER_CLASS_DICT = BiDict(
     {
-        ModelArchitectures.BERT: transformers.BertTokenizer,
+        ModelArchitectures.BERT: transformers.BertTokenizerFast,
         ModelArchitectures.KOBERT: transformers.BertTokenizer,
         ModelArchitectures.XLM: transformers.XLMTokenizer,
         ModelArchitectures.ROBERTA: transformers.RobertaTokenizer,
