@@ -74,8 +74,8 @@ def setup_jiant_model(
         tokenizer.add_special_tokens(special_tokens_dict)
     else:
         # use_fast=False
-        tokenizer = transformers.AutoTokenizer.from_pretrained(hf_pretrained_model_name_or_path, use_fast=False, 
-            unk_token="<unk>", bos_token="<s>", eos_token="</s>")
+        #tokenizer = transformers.AutoTokenizer.from_pretrained(hf_pretrained_model_name_or_path, use_fast=False, unk_token="<unk>", bos_token="<s>", eos_token="</s>")
+        tokenizer = transformers.AutoTokenizer.from_pretrained(hf_pretrained_model_name_or_path, use_fast=True, unk_token="<unk>", bos_token="<s>", eos_token="</s>")
         
     encoder = primary.JiantTransformersModelFactory()(hf_model)
     taskmodels_dict = {
