@@ -185,6 +185,7 @@ class TokenAligner(object):
 
     @staticmethod
     def _project_span(mat, start, end, inclusive):
+        print('##### __project_span(): ', mat, start, end, inclusive)
         if inclusive:
             end = end + 1
         target_matches = mat[start:end].nonzero()[1].tolist()
