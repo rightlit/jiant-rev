@@ -34,8 +34,8 @@ class CopaTask(SuperGlueMixin, mc_template.AbstractMultipleChoiceTask):
     DataRow = DataRow
     Batch = Batch
 
-    is_ko_model = False
-    #is_ko_model = True
+    #is_ko_model = False
+    is_ko_model = True
 
     CHOICE_KEYS = [0, 1]
     if(is_ko_model):
