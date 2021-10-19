@@ -117,6 +117,7 @@ def metadata_collate_fn(metadata: list):
 def flat_collate_fn(batch):
     elem = batch[0]
     if isinstance(elem, (np.ndarray, int, float, str)):
+        print('##### flat_collate_fn()', elem)
         return dataloader.default_collate(batch)
     elif isinstance(elem, (list, dict, set)):
         # Don't do anything to list of lists
