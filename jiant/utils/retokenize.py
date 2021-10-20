@@ -192,8 +192,9 @@ class TokenAligner(object):
         if len(target_matches) == 0:
             #raise ValueError(f"Project {(start, end)} into empty span in target sequence")
             print(f"Project {(start, end)} into empty span in target sequence")
-            target_matches = mat[start:end][0]
-        output_start, output_end = min(target_matches), max(target_matches)
+            output_start, output_end = 0, 0
+        else:    
+            output_start, output_end = min(target_matches), max(target_matches)
         if not inclusive:
             output_end = output_end + 1
         return (output_start, output_end)
