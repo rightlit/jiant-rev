@@ -511,11 +511,8 @@ class JiantElectraModel(JiantTransformersModel):
             input_ids=input_ids, token_type_ids=segment_ids, attention_mask=input_mask
         )
         unpooled = output.hidden_states
-        # added code
-        if(unpooled is not None):
-            pooled = unpooled[:, 0, :]
-        else:
-            pooled = unpooled
+        pooled = unpooled[:, 0, :]
+
         return JiantModelOutput(pooled=pooled, unpooled=unpooled, other=output.hidden_states)
 
     def get_feat_spec(self, max_seq_length):
