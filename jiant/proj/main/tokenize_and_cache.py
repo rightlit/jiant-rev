@@ -167,6 +167,9 @@ def main(args: RunConfiguration):
         print('##### gpt2 : add_special_tokens() #####')
         special_tokens_dict = {'unk_token':'<|endoftext|>', 'sep_token':'<|endoftext|>', 'pad_token':'<|endoftext|>', 'cls_token':'<|endoftext|>', 'mask_token':'<|endoftext|>'}
         tokenizer.add_special_tokens(special_tokens_dict)
+    elif('electra' in args.hf_pretrained_model_name_or_path):
+        # remove params with default special tokens 
+        tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=True)
     else:
         # use_fast=False
         #tokenizer = AutoTokenizer.from_pretrained(args.hf_pretrained_model_name_or_path, use_fast=False, unk_token="<unk>", bos_token="<s>", eos_token="</s>")
