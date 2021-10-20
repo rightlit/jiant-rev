@@ -200,6 +200,10 @@ def load_encoder_from_transformers_weights(
             # workaround bert
             # load other weights as same key
             load_weights_dict[k] = v
+        elif k.startswith('discriminator_'):
+            # workaround electra
+            # load other weights as same key
+            load_weights_dict[k] = v
         else:
             remainder_weights_dict[k] = v
     encoder.load_state_dict(load_weights_dict, strict=False)
