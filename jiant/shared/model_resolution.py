@@ -15,6 +15,7 @@ class ModelArchitectures(Enum):
     BART = "bart"
     MBART = "mbart"
     ELECTRA = "electra"
+    ELECTRAFAST = "electrafast"
     DEBERTAV2 = "deberta-v2"
     GPT2 = "gpt2"
     GPT2FAST = "gpt2fast"
@@ -41,6 +42,7 @@ TOKENIZER_CLASS_DICT = BiDict(
         ModelArchitectures.BART: transformers.BartTokenizer,
         ModelArchitectures.MBART: transformers.MBartTokenizer,
         ModelArchitectures.ELECTRA: transformers.ElectraTokenizer,
+        ModelArchitectures.ELECTRAFAST: transformers.ElectraTokenizerFast,
         ModelArchitectures.DEBERTAV2: transformers.DebertaV2Tokenizer,
         ModelArchitectures.GPT2: transformers.GPT2Tokenizer,
         ModelArchitectures.GPT2FAST: transformers.GPT2TokenizerFast,
