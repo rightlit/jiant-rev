@@ -560,9 +560,27 @@ class JiantElectraModel(JiantTransformersModel):
         raise NotImplementedError()
     '''
     
+    '''
+    ElectraModel: ['discriminator_predictions.dense.weight', 
+        'discriminator_predictions.dense.bias', 
+        'discriminator_predictions.dense_prediction.bias', 
+        'discriminator_predictions.dense_prediction.weight']
+    '''
+    def get_mlm_weights_dict(self, weights_dict):
+        mlm_weights_map = {
+            "dense.weight": "discriminator_predictions.dense.weight",
+            "dense.bias": "discriminator_predictions.dense.bias",
+            "decoder.weight": "discriminator_predictions.dense_prediction.weight",
+            "decoder.bias": "discriminator_predictions.dense_prediction.bias",  
+        }
+        mlm_weights_dict = {new_k: weights_dict[old_k] for new_k, old_k in mlm_weights_map.items()}
+        return mlm_weights_dict
+    
+    '''
     def get_mlm_weights_dict(self, weights_dict):
         raise NotImplementedError()
-
+    '''
+ 
 
 @JiantTransformersModelFactory.register(ModelArchitectures.BART)
 class JiantBartModel(JiantTransformersModel):
