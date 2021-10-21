@@ -507,6 +507,15 @@ class JiantElectraModel(JiantTransformersModel):
     def __init__(self, baseObject):
         super().__init__(baseObject)
 
+    @classmethod
+    def normalize_tokenizations(cls, tokenizer, space_tokenization, target_tokenization):
+        """See tokenization_normalization.py for details"""
+        space_tokenization = [token.lower() for token in space_tokenization]
+        modifed_space_tokenization = bow_tag_tokens(space_tokenization)
+        modifed_target_tokenization = process_sentencepiece_tokens(target_tokenization)
+
+        return modifed_space_tokenization, modifed_target_tokenization
+    
     '''
     def encode(self, input_ids, segment_ids, input_mask):
         output = self.forward(
