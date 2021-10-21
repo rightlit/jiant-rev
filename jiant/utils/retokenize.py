@@ -185,10 +185,11 @@ class TokenAligner(object):
 
     @staticmethod
     def _project_span(mat, start, end, inclusive):
-        print('##### __project_span(): ', mat, start, end, inclusive)
+        #print('##### __project_span(): ', mat, start, end, inclusive)
         if inclusive:
             end = end + 1
         target_matches = mat[start:end].nonzero()[1].tolist()
+        print('##### __project_span(), mat[start:end]: ', start, end, mat[start:end], mat.shape)
         if len(target_matches) == 0:
             #raise ValueError(f"Project {(start, end)} into empty span in target sequence")
             print(f"Project {(start, end)} into empty span in target sequence")
