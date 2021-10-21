@@ -502,6 +502,7 @@ class JiantAlbertModel(JiantTransformersModel):
 
 
 @JiantTransformersModelFactory.register(ModelArchitectures.ELECTRA)
+@JiantTransformersModelFactory.register(ModelArchitectures.ELECTRAFAST)
 class JiantElectraModel(JiantTransformersModel):
     def __init__(self, baseObject):
         super().__init__(baseObject)
