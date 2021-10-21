@@ -46,4 +46,5 @@ def write_preds(eval_results_dict, path):
             "guids": task_results_dict["accumulator"].get_guids(),
         }
     #torch.save(preds_dict, path)
+    print('##### write_json to : ', path)
     py_io.write_json(data=preds_dict, path=path)
