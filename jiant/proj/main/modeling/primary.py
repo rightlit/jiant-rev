@@ -507,6 +507,12 @@ class JiantElectraModel(JiantTransformersModel):
     def __init__(self, baseObject):
         super().__init__(baseObject)
 
+    '''
+    @classmethod
+    def normalize_tokenizations(cls, tokenizer, space_tokenization, target_tokenization):
+        raise NotImplementedError()
+    '''
+
     @classmethod
     def normalize_tokenizations(cls, tokenizer, space_tokenization, target_tokenization):
         """See tokenization_normalization.py for details"""
@@ -553,18 +559,7 @@ class JiantElectraModel(JiantTransformersModel):
             sequence_b_segment_id=1,
             sep_token_extra=False,
         )
-
-    '''
-    @classmethod
-    def normalize_tokenizations(cls, tokenizer, space_tokenization, target_tokenization):
-        raise NotImplementedError()
-    '''
     
-    '''
-    ElectraModel: ['discriminator_predictions.dense.weight', 
-        'discriminator_predictions.dense.bias', 
-        'discriminator_predictions.dense_prediction.bias', 
-        'discriminator_predictions.dense_prediction.weight']
     '''
     def get_mlm_weights_dict(self, weights_dict):
         mlm_weights_map = {
@@ -575,11 +570,10 @@ class JiantElectraModel(JiantTransformersModel):
         }
         mlm_weights_dict = {new_k: weights_dict[old_k] for new_k, old_k in mlm_weights_map.items()}
         return mlm_weights_dict
-    
     '''
+
     def get_mlm_weights_dict(self, weights_dict):
         raise NotImplementedError()
-    '''
  
 
 @JiantTransformersModelFactory.register(ModelArchitectures.BART)
