@@ -506,6 +506,7 @@ class JiantElectraModel(JiantTransformersModel):
     def __init__(self, baseObject):
         super().__init__(baseObject)
 
+    '''
     def encode(self, input_ids, segment_ids, input_mask):
         output = self.forward(
             input_ids=input_ids, token_type_ids=segment_ids, attention_mask=input_mask
@@ -514,7 +515,21 @@ class JiantElectraModel(JiantTransformersModel):
         pooled = unpooled[:, 0, :]
 
         return JiantModelOutput(pooled=pooled, unpooled=unpooled, other=output.hidden_states)
-
+    '''
+    
+    def encode(self, input_ids, segment_ids, input_mask, output_hidden_states=True):
+        output = self.forward(
+            input_ids=input_ids,
+            token_type_ids=segment_ids,
+            attention_mask=input_mask,
+            output_hidden_states=output_hidden_states,
+        )
+        return JiantModelOutput(
+            pooled=output.last_hidden_state[:, 0, :],
+            unpooled=output.last_hidden_state,
+            other=output.hidden_states,
+        )
+    
     def get_feat_spec(self, max_seq_length):
         return FeaturizationSpec(
             max_seq_length=max_seq_length,
