@@ -554,10 +554,12 @@ class JiantElectraModel(JiantTransformersModel):
             sep_token_extra=False,
         )
 
+    '''
     @classmethod
     def normalize_tokenizations(cls, tokenizer, space_tokenization, target_tokenization):
         raise NotImplementedError()
-
+    '''
+    
     def get_mlm_weights_dict(self, weights_dict):
         raise NotImplementedError()
 
