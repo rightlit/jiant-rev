@@ -71,10 +71,14 @@ def write_preds(eval_results_dict, path, verbose=True):
         print(preds_list_dic)
         
     #torch.save(preds_dict, path)
+    '''
     print('##### write_json to : ', path)
     #py_io.write_json(data=preds_list_dic, path=path)
     #py_io.write_json(data=preds_dict, path=path)
     dumped = json.dumps(data=preds_list_dic, cls=NumpyEncoder)
     # using py_io
     py_io.write_file(dumped, path)
- 
+    '''
+    
+    with open(path, "w") as f:
+        json.dump(preds_list_dic, f)
