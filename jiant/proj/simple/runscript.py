@@ -74,6 +74,7 @@ class RunConfiguration(zconf.RunConfig):
             self.train_tasks or self.val_tasks or self.test_tasks
         ), "Must include tasks or one of train_tasks, val_tasks, tests_tasks"
         if self.tasks and (self.train_tasks or self.val_tasks or self.test_tasks):
+            print('##### _post_init(), tasks: ', self.tasks, self.test_tasks)
             assert (
                 ([self.tasks] == self.train_tasks)
                 and ([self.tasks] == self.val_tasks)
