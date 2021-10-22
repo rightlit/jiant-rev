@@ -67,7 +67,13 @@ def write_preds(eval_results_dict, path, verbose=True):
         preds_dic_list = []
         for i, pred in enumerate(preds_list):
             e_dic = {}
-            label = int(pred)
+            if(task_name == 'wic'):
+                if(pred == 1):
+                    label = True
+                else:
+                    label = False
+            else:
+                label = int(pred)
             id = guids_list[i]
             e_dic['idx'] = id
             e_dic['label'] = label
