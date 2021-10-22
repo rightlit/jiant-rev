@@ -53,6 +53,7 @@ def write_preds(eval_results_dict, path):
 
 def write_preds(eval_results_dict, path, verbose=True):
     preds_dict = {}
+    preds_list = []
     for task_name, task_results_dict in eval_results_dict.items():
         preds_dict[task_name] = {
             "preds": task_results_dict["preds"],
@@ -61,6 +62,9 @@ def write_preds(eval_results_dict, path, verbose=True):
         print('##### write_preds(), task_name: ', task_name, len(task_results_dict["preds"]))
         print(task_results_dict["preds"])
         print(task_results_dict["accumulator"].get_guids())
+        for pred, guid in (task_results_dict["preds"], task_results_dict["accumulator"].get_guids())
+            preds_list.append(zip(pred, guid))
+        print(preds_list)
         
     #torch.save(preds_dict, path)
     
@@ -70,6 +74,6 @@ def write_preds(eval_results_dict, path, verbose=True):
         
     print('##### write_json to : ', path)
     #py_io.write_json(data=preds_dict, path=path)
-    dumped = json.dumps(data=preds_dict, path=path, cls=NumpyEncoder)
+    dumped = json.dumps(data=preds_dict, cls=NumpyEncoder)
     # using py_io
     py_io.write_file(dumped, path)
