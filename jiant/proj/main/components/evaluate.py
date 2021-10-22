@@ -60,7 +60,7 @@ def write_preds(eval_results_dict, path, verbose=True):
         }
         print('##### write_preds(), task_name: ', task_name, len(task_results_dict["preds"]))
         print(task_results_dict["preds"])
-        print(task_results_dict["accumulator"])
+        print(task_results_dict["accumulator"].get_guids())
         
     #torch.save(preds_dict, path)
     
