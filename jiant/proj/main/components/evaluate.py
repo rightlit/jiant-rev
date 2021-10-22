@@ -59,6 +59,9 @@ def write_preds(eval_results_dict, path, verbose=True):
             "guids": task_results_dict["accumulator"].get_guids(),
         }
         print('##### write_preds(), task_name: ', task_name, len(task_results_dict["preds"]))
+        print(task_results_dict["preds"])
+        print(task_results_dict["accumulator"])
+        
     #torch.save(preds_dict, path)
     
     #prediction_str = json.dumps(preds_dict, indent=2)
