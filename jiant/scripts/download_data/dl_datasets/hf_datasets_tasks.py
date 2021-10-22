@@ -95,7 +95,8 @@ HF_DATASETS_CONVERSION_DICT = {
     # === SuperGLUE === #
     "boolq": {"path": "super_glue", "name": "boolq", "label_map": BoolQTask.ID_TO_LABEL},
     "cb": {"path": "super_glue", "name": "cb", "label_map": CommitmentBankTask.ID_TO_LABEL},
-    "copa": {"path": "super_glue", "name": "copa"},
+    #"copa": {"path": "super_glue", "name": "copa"},
+    "copa": {"path": "super_glue", "name": "copa", "phase_list": ["train", "val", "test"]},
     "multirc": {"path": "super_glue", "name": "multirc"},
     "record": {"path": "super_glue", "name": "record"},
     "wic": {"path": "super_glue", "name": "wic", "label_map": WiCTask.ID_TO_LABEL},
