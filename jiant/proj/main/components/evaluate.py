@@ -48,9 +48,9 @@ def write_preds(eval_results_dict, path, verbose=True):
         print('##### write_preds(), task_name: ', task_name, len(task_results_dict["preds"]))
     #torch.save(preds_dict, path)
     
-    prediction_str = json.dumps(preds_dict, indent=2)
-    if verbose:
-        print(prediction_str)
+    #prediction_str = json.dumps(preds_dict, indent=2)
+    #if verbose:
+    #    print(prediction_str)
         
     print('##### write_json to : ', path)
     py_io.write_json(data=preds_dict, path=path)
