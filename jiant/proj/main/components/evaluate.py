@@ -65,7 +65,7 @@ def write_preds(eval_results_dict, path, verbose=True):
         preds_list = task_results_dict["preds"]
         guids_list = task_results_dict["accumulator"].get_guids()
         for i, pred in enumerate(preds_list):
-            v = pred
+            v = int(pred)
             k = guids_list[i]
             preds_list_dic[k] = v
         print(preds_list_dic)
