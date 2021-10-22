@@ -38,7 +38,7 @@ def convert_hf_dataset_to_examples(
             dataset = datasets.load_dataset('csv', 
                 data_files={'train': '/content/NIKL_CoLA_train.tsv', 'validation': '/content/NIKL_CoLA_dev.tsv', 'test': '/content/NIKL_CoLA_test.tsv'}, 
                 delimiter='\t',
-                column_names =['source',	'label',	'source_annotation',	'sentence'],
+                column_names =['idx',	'label',	'source_annotation',	'sentence'],
                 skiprows=1)
         elif(name == 'copa'):
             # column_names =['ID', 'sentence',	'question',	'1',	'2', 'Answer']
