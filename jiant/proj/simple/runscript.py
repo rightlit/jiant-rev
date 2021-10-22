@@ -134,18 +134,13 @@ def run_simple(args: RunConfiguration, with_continue: bool = False):
             )
 
         # === Step 3: Tokenize and cache === #
-        '''
+
         phase_task_dict = {
             "train": args.train_tasks,
             "val": args.val_tasks,
             "test": args.test_tasks,
         }
-        '''
-        phase_task_dict = {
-            "train": self.train_tasks,
-            "val": self.val_tasks,
-            "test": self.test_tasks,
-        }
+
         for task_name in full_task_name_list:
             phases_to_do = []
             for phase, phase_task_list in phase_task_dict.items():
@@ -159,7 +154,8 @@ def run_simple(args: RunConfiguration, with_continue: bool = False):
                         phase_task_list.remove(task_name)
             if not phases_to_do:
                 continue
-            print(f"Tokenizing Task '{task_name}' for phases '{','.join(phases_to_do)}'")
+            #print(f"Tokenizing Task '{task_name}' for phases '{','.join(phases_to_do)}'")
+            print(f"##### run_simple(): Tokenizing Task '{task_name}' for phases '{','.join(phases_to_do)}'")
             tokenize_and_cache.main(
                 tokenize_and_cache.RunConfiguration(
                     task_config_path=task_config_path_dict[task_name],
