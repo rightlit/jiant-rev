@@ -80,7 +80,7 @@ def write_preds(eval_results_dict, path, verbose=True):
 
     with open(path, "w") as f:
         #json.dump(preds_dic_list, f, indent=2)
-        json.dump(output_preds_dict, f, indent=2)
+        json.dump(output_preds_dict, f, indent=1)
 
     '''
     #py_io.write_json(data=preds_list_dic, path=path)
