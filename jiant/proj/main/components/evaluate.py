@@ -72,15 +72,9 @@ def write_preds(eval_results_dict, path, verbose=True):
         
     #torch.save(preds_dict, path)
     print('##### write_json to : ', path)
-    py_io.write_json(data=preds_list_dic, path=path)
-
-    #prediction_str = json.dumps(preds_dict, indent=2)
-    #if verbose:
-    #    print(prediction_str)
-        
-    '''
+    #py_io.write_json(data=preds_list_dic, path=path)
     #py_io.write_json(data=preds_dict, path=path)
-    dumped = json.dumps(data=preds_dict, cls=NumpyEncoder)
+    dumped = json.dumps(data=preds_list_dict, cls=NumpyEncoder)
     # using py_io
     py_io.write_file(dumped, path)
-    '''
+ 
