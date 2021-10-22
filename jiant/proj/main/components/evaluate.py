@@ -6,6 +6,19 @@ import torch
 import jiant.utils.python.io as py_io
 import jiant.proj.main.components.task_sampler as jiant_task_sampler
 
+import numpy as np
+
+# added by rightlit
+class NumpyEncoder(json.JSONEncoder):
+    """ Special json encoder for numpy types """
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return json.JSONEncoder.default(self, obj)
 
 def write_val_results(val_results_dict, metrics_aggregator, output_dir, verbose=True):
     full_results_to_write = {
@@ -53,4 +66,7 @@ def write_preds(eval_results_dict, path, verbose=True):
     #    print(prediction_str)
         
     print('##### write_json to : ', path)
-    py_io.write_json(data=preds_dict, path=path)
+    #py_io.write_json(data=preds_dict, path=path)
+    dumped = json.dumps(data=preds_dict, path=path, cls=NumpyEncoder)
+    # using py_io
+    py_io.write_file(dumped, path)
