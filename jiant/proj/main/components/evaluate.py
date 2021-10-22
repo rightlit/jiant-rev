@@ -79,8 +79,8 @@ def write_preds(eval_results_dict, path, verbose=True):
     print('##### write_json to : ', path)
 
     with open(path, "w") as f:
-    #json.dump(preds_dic_list, f, indent=2)
-    json.dump(output_preds_dict, f, indent=4)
+        #json.dump(preds_dic_list, f, indent=2)
+        json.dump(output_preds_dict, f, indent=4)
 
     '''
     #py_io.write_json(data=preds_list_dic, path=path)
