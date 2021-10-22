@@ -28,6 +28,7 @@ HF_DATASETS_CONVERSION_DICT = {
         "name": "cola",
         "field_map": {"sentence": "text"},
         "label_map": ColaTask.ID_TO_LABEL,
+        "phase_list": ["train", "val", "test"],
     },
     "mnli": {
         "path": "glue",
@@ -93,13 +94,15 @@ HF_DATASETS_CONVERSION_DICT = {
         "jiant_task_name": "glue_diagnostics",
     },
     # === SuperGLUE === #
-    "boolq": {"path": "super_glue", "name": "boolq", "label_map": BoolQTask.ID_TO_LABEL},
+    #"boolq": {"path": "super_glue", "name": "boolq", "label_map": BoolQTask.ID_TO_LABEL},
+    "boolq": {"path": "super_glue", "name": "boolq", "label_map": BoolQTask.ID_TO_LABEL, "phase_list": ["train", "val", "test"]},
     "cb": {"path": "super_glue", "name": "cb", "label_map": CommitmentBankTask.ID_TO_LABEL},
     #"copa": {"path": "super_glue", "name": "copa"},
     "copa": {"path": "super_glue", "name": "copa", "phase_list": ["train", "val", "test"]},
     "multirc": {"path": "super_glue", "name": "multirc"},
     "record": {"path": "super_glue", "name": "record"},
-    "wic": {"path": "super_glue", "name": "wic", "label_map": WiCTask.ID_TO_LABEL},
+    #"wic": {"path": "super_glue", "name": "wic", "label_map": WiCTask.ID_TO_LABEL},
+    "wic": {"path": "super_glue", "name": "wic", "label_map": WiCTask.ID_TO_LABEL, "phase_list": ["train", "val", "test"]},
     "wsc": {"path": "super_glue", "name": "wsc.fixed", "label_map": WSCTask.ID_TO_LABEL},
     "superglue_broadcoverage_diagnostics": {
         "path": "super_glue",
