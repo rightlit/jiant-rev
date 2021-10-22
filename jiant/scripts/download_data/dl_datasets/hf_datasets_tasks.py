@@ -28,7 +28,7 @@ HF_DATASETS_CONVERSION_DICT = {
         "name": "cola",
         "field_map": {"sentence": "text"},
         "label_map": ColaTask.ID_TO_LABEL,
-        "phase_list": ["train", "val"],
+        "phase_list": ["train", "val", "test"],
     },
     "mnli": {
         "path": "glue",
