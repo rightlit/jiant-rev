@@ -53,6 +53,7 @@ def write_preds(eval_results_dict, path):
 
 def write_preds(eval_results_dict, path, verbose=True):
     preds_dict = {}
+    output_preds_dict = {}
     for task_name, task_results_dict in eval_results_dict.items():
         preds_dict[task_name] = {
             "preds": task_results_dict["preds"],
@@ -71,10 +72,15 @@ def write_preds(eval_results_dict, path, verbose=True):
             e_dic['idx'] = id
             e_dic['label'] = label
             preds_dic_list.append(e_dic)
-        print(preds_dic_list)
+        print('##### preds_dic_list: ', preds_dic_list)
+        output_preds_dict[task_name] = preds_dic_list
         
     #torch.save(preds_dict, path)
     print('##### write_json to : ', path)
+
+    with open(path, "w") as f:
+    #json.dump(preds_dic_list, f, indent=2)
+    json.dump(output_preds_dict, f, indent=4)
 
     '''
     #py_io.write_json(data=preds_list_dic, path=path)
@@ -84,5 +90,3 @@ def write_preds(eval_results_dict, path, verbose=True):
     py_io.write_file(dumped, path)
     '''
     
-    with open(path, "w") as f:
-        json.dump(preds_dic_list, f, indent=2)
