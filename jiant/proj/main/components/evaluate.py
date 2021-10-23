@@ -77,7 +77,7 @@ def write_preds(eval_results_dict, path, verbose=True):
             guid = guids_list[i]  # test-1
             id = guid.split('-')[1] # second arg
 
-            e_dic['idx'] = id
+            e_dic['idx'] = int(id)
             e_dic['label'] = label
             preds_dic_list.append(e_dic)
         print('##### preds_dic_list: ', preds_dic_list)
