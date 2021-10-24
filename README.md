@@ -1,6 +1,6 @@
 # jiant NLP toolkit
 
-jiant NLP toolkit [https://github.com/nyu-mll/jiant](https://github.com/nyu-mll/jiant) 을 활용하여
+[jiant NLP toolkit](https://github.com/nyu-mll/jiant) 을 활용하여
 2021 국립국어원 인공지능언어능력평가에 맞게 수정하여 사용하였습니다.
 
 모델은 koELECTRA 를 사용하였습니다.
