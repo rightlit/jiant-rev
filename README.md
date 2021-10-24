@@ -4,7 +4,7 @@ jiant NLP toolkit 를 활용하여
 2021 국립국어원 인공지능언어능력평가에 맞게 수정하여 사용하였습니다.
 
 - 대회자료
-    - [https://corpus.korean.go.kr/task/taskList.do?taskId=1&clCd=ING_TASK&subMenuId=sub01](https://corpus.korean.go.kr)
+    - [https://corpus.korean.go.kr](https://corpus.korean.go.kr/task/taskList.do?taskId=1&clCd=ING_TASK&subMenuId=sub01)
 
 
 jiant 를 수정한 부분은 아래와 같습니다.
