@@ -17,13 +17,10 @@ jiant 를 수정한 부분은 아래와 같습니다.
     - 모듈 : ./jiant/scripts/download_data/dl_datasets/hf_datasets_tasks.py
         - 변수 : HF_DATASETS_CONVERSION_DICT
             - task 데이터셋 칼럼요소 변경
-2. GPT2를 이용한 챗봇(일반대화)
-    - 모델 훈련 : [02_chatbot_kogpt2_train.py](https://github.com/rightlit/nlp2/blob/main/examples/02_chatbot_kogpt2_train.py)
-    - 모델 시험 : [02_chatbot_kogpt2_test.py](https://github.com/rightlit/nlp2/blob/main/examples/02_chatbot_kogpt2_test.py)
-3. GPT2를 이용한 챗봇(건강상담)
-    - 모델 훈련 : [03_chatbot_kogpt2_train.py](https://github.com/rightlit/nlp2/blob/main/examples/03_chatbot_kogpt2_train.py)
-    - 모델 시험 : [03_chatbot_kogpt2_test.py](https://github.com/rightlit/nlp2/blob/main/examples/03_chatbot_kogpt2_test.py)
-- - -
-* 트랜스포머(transformers)를 이용한 챗봇 
-    - 모델 훈련 : [11_chatbot_transformer_train.py](https://github.com/rightlit/nlp2/blob/main/examples/11_chatbot_transformer_train.py)
-    - 모델 시험 : [11_chatbot_transformer_test.py](https://github.com/rightlit/nlp2/blob/main/examples/11_chatbot_transformer_test.py)
+
+2. task 별 포멧
+3. 평가결과 제출
+    - 모듈 : ./jiant/proj/main/components/evaluate.py
+        - 함수 : write_preds()
+            - ID, 결과 포멧
+
