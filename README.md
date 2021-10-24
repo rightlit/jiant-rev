@@ -18,7 +18,7 @@ jiant 를 수정한 부분은 아래와 같습니다.
         - 변수 : TOKENIZER_CLASS_DICT
             - ElectraFastTokenizer 추가
     - 모듈 : ./jiant/proj/main/modeling/primary.py
-        - 변수 : @JiantTransformersModelFactory.register()
+        - 함수 : @JiantTransformersModelFactory.register()
             - 모델 등록
 
 2. task 데이터셋 로드 : 
