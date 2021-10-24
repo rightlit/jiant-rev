@@ -20,6 +20,7 @@ jiant 를 수정한 부분은 아래와 같습니다.
     - 모듈 : ./jiant/proj/main/modeling/primary.py
         - 변수 : @JiantTransformersModelFactory.register()
             - 모델 등록
+
 2. task 데이터셋 로드 : 
     - 모듈 : ./jiant/scripts/download_data/utils.py
         - 함수 : convert_hf_dataset_to_examples()
@@ -27,6 +28,7 @@ jiant 를 수정한 부분은 아래와 같습니다.
     - 모듈 : ./jiant/scripts/download_data/dl_datasets/hf_datasets_tasks.py
         - 변수 : HF_DATASETS_CONVERSION_DICT
             - task 데이터셋 칼럼요소 변경(cola, copa, wic, boolq)
+
 3. 평가결과 제출
     - 모듈 : ./jiant/proj/main/components/evaluate.py
         - 함수 : write_preds()
