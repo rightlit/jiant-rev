@@ -10,9 +10,13 @@ jiant NLP toolkit 를 활용하여
 jiant 를 수정한 부분은 아래와 같습니다.
 
 ### 예제 수정
-1. task 데이터셋 로드 
+1. task 데이터셋 로드 : 
     - 모듈 : ./jiant/scripts/download_data/utils.py
         - 함수 : convert_hf_dataset_to_examples()
+            - 데이터셋 로드 변경
+    - 모듈 : ./jiant/scripts/download_data/dl_datasets/hf_datasets_tasks.py
+        - 변수 : HF_DATASETS_CONVERSION_DICT
+            - task 데이터셋 칼럼요소 변경
 2. GPT2를 이용한 챗봇(일반대화)
     - 모델 훈련 : [02_chatbot_kogpt2_train.py](https://github.com/rightlit/nlp2/blob/main/examples/02_chatbot_kogpt2_train.py)
     - 모델 시험 : [02_chatbot_kogpt2_test.py](https://github.com/rightlit/nlp2/blob/main/examples/02_chatbot_kogpt2_test.py)
