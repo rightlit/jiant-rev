@@ -49,11 +49,17 @@ class CopaTask(SuperGlueMixin, mc_template.AbstractMultipleChoiceTask):
         "effect": "What happened as a result?",
     }
     if(is_ko_model):
+        '''
         _QUESTION_DICT = {
             "원인": "What was the cause of this?",
             "결과": "What happened as a result?",
         }
-
+        '''
+        _QUESTION_DICT = {
+            "원인": "원인은 무엇인가요?",
+            "결과": "결과는 무엇인가요?",
+        }
+        
     def get_train_examples(self):
         return self._create_examples(lines=read_json_lines(self.train_path), set_type="train")
 
