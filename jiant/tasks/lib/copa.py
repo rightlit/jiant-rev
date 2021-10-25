@@ -91,5 +91,6 @@ class CopaTask(SuperGlueMixin, mc_template.AbstractMultipleChoiceTask):
         """Reformat this task's raw predictions to have the structure expected by SuperGLUE."""
         lines = []
         for pred, guid in zip(list(pred_dict["preds"]), list(pred_dict["guids"])):
-            lines.append({"idx": int(guid.split("-")[1]), "label": cls.CHOICE_KEYS[pred]})
+            #lines.append({"idx": int(guid.split("-")[1]), "label": cls.CHOICE_KEYS[pred]})
+            lines.append({"idx": int(guid.split("-")[1]), "label": CHOICE_KEYS[pred]})
         return lines
