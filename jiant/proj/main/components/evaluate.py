@@ -72,6 +72,9 @@ def write_preds(eval_results_dict, path, verbose=True):
                     label = True
                 else:
                     label = False
+            elif(task_name == 'copa'):
+                CHOICE_KEYS = [1, 2]      # start from 1
+                label = CHOICE_KEYS[pred]
             else:
                 label = int(pred)
             guid = guids_list[i]  # test-1
