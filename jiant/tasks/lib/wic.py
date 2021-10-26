@@ -55,7 +55,10 @@ class Example(BaseExample):
             if (span_start_idx != 0) and (sentence[: (char_span.start)][-1] in string.punctuation):
                 span_start_idx = span_start_idx - 1
             span_text = sentence[char_span.start : char_span.end]
-
+            # added code
+            if(char_span.start == 0 or span_start_idx == 0):
+                sentence = span_text + " " + sentence
+                 
             sentence_space_tokenization = sentence.split()
             sentence_target_tokenization = tokenizer.tokenize(sentence)
             (
