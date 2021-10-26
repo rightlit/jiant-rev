@@ -79,9 +79,11 @@ class Example(BaseExample):
         sentence1_target_tokenization, target_span1 = tokenize_span(
             tokenizer, self.sentence1, self.span1
         )
+        print('##### target_span1: ',target_span1) 
         sentence2_target_tokenization, target_span2 = tokenize_span(
             tokenizer, self.sentence2, self.span2
         )
+        print('##### target_span2: ',target_span2) 
 
         return TokenizedExample(
             guid=self.guid,
