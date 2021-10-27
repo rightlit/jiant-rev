@@ -57,6 +57,7 @@ class Example(BaseExample):
             span_text = sentence[char_span.start : char_span.end]
             # added code
             if(char_span.start == 0 or span_start_idx == 0):
+                print('##### tokenize_span() : char_span.start, idx', char_span.start, span_start_idx)
                 sentence = span_text + " " + sentence
                  
             sentence_space_tokenization = sentence.split()
