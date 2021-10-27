@@ -67,10 +67,12 @@ class Example(BaseExample):
             ) = normalize_tokenizations(
                 sentence_space_tokenization, sentence_target_tokenization, tokenizer
             )
-            print('##### sentence_normed_space_tokenization: ', sentence_normed_space_tokenization)
-            print('##### sentence_normed_target_tokenization: ', sentence_normed_target_tokenization)
             span_start_char = len(" ".join(sentence_normed_space_tokenization[:span_start_idx]))
             span_text_char = len(span_text)
+            print('##### tokenize_span() : ', span_start_char, span_text_char, span_text)
+            print('##### sentence_normed_space_tokenization: ', sentence_normed_space_tokenization)
+            print('##### sentence_normed_target_tokenization: ', sentence_normed_target_tokenization)
+
             aligner = retokenize.TokenAligner(
                 sentence_normed_space_tokenization, sentence_normed_target_tokenization
             )
