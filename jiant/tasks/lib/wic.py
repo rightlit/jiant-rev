@@ -62,6 +62,7 @@ class Example(BaseExample):
             if(char_span.start == 0 or span_start_idx == 0):
                 print('##### 0 index FOUND!!! tokenize_span() : char_span.start, idx', char_span.start, span_start_idx)
                 sentence = span_text + " " + sentence
+                span_start_idx = span_start_idx + len(span_text)  # increase start_idx
                  
             sentence_space_tokenization = sentence.split()
             sentence_target_tokenization = tokenizer.tokenize(sentence)
