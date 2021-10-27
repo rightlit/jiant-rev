@@ -48,6 +48,9 @@ class Example(BaseExample):
                 target_span (ExclusiveSpane): token span for sentence
             """
             
+            #exception_flag = True
+            exception_flag = False
+            
             span_start_idx = len(sentence[: char_span.start].split())
             print('##### tokenize_span(), start/idx/sentence : ', char_span.start, span_start_idx, sentence[: char_span.start])
 
@@ -58,8 +61,9 @@ class Example(BaseExample):
             if (span_start_idx != 0) and (sentence[: (char_span.start)][-1] in string.punctuation):
                 span_start_idx = span_start_idx - 1
             span_text = sentence[char_span.start : char_span.end]
-            # added code
-            if(char_span.start == 0 or span_start_idx == 0):
+            
+            # added code (for exception)
+            if(exception_flag and (char_span.start == 0 or span_start_idx == 0)):
                 print('##### 0 index FOUND!!! tokenize_span() : char_span.start, idx', char_span.start, span_start_idx)
                 sentence = span_text + " " + sentence
                 span_start_idx = span_start_idx + len(span_text)  # increase start_idx
@@ -82,7 +86,7 @@ class Example(BaseExample):
             print('##### sentence_normed_target_tokenization: ', sentence_normed_target_tokenization)
 
             # added code (for exception)
-            if(span_start_char <= 5):
+            if(exception_flag and span_start_char <= 5):
                 span_start_char =  char_span.start
             
             aligner = retokenize.TokenAligner(
