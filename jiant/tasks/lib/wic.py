@@ -88,7 +88,10 @@ class Example(BaseExample):
             # added code (for exception)
             if(exception_flag and span_start_char <= 5):
                 span_start_char =  char_span.start
-            
+            # added code (for exception)
+            if(exception_flag and span_text_char == 1):
+                span_text_char = span_text_char + 1
+
             aligner = retokenize.TokenAligner(
                 sentence_normed_space_tokenization, sentence_normed_target_tokenization
             )
