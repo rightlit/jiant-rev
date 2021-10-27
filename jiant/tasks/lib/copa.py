@@ -56,8 +56,8 @@ class CopaTask(SuperGlueMixin, mc_template.AbstractMultipleChoiceTask):
         }
         '''
         _QUESTION_DICT = {
-            "원인": "원인은 무엇입니까?",
-            "결과": "결과는 무엇입니까?",
+            "원인": "이것의 원인이 무엇일까요?",
+            "결과": "그래서 결과는 어떻게 되었나요?",
         }
         
     def get_train_examples(self):
