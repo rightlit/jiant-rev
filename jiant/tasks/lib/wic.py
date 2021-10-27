@@ -74,6 +74,7 @@ class Example(BaseExample):
             )
             span_start_char = len(" ".join(sentence_normed_space_tokenization[:span_start_idx]))
             span_text_char = len(span_text)
+            print('##### tokenize_span() CONCAT sentence_normed_space_tokenization : ', " ".join(sentence_normed_space_tokenization[:span_start_idx]))
             print('##### tokenize_span() start/span/char : ', span_start_char, span_text_char, span_text)
             print('##### sentence_normed_space_tokenization: ', sentence_normed_space_tokenization)
             print('##### sentence_normed_target_tokenization: ', sentence_normed_target_tokenization)
