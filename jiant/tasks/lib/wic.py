@@ -48,8 +48,8 @@ class Example(BaseExample):
                 target_span (ExclusiveSpane): token span for sentence
             """
             
-            #exception_flag = True
-            exception_flag = False
+            exception_flag = True
+            #exception_flag = False
             
             span_start_idx = len(sentence[: char_span.start].split())
             print('##### tokenize_span(), start/idx/sentence : ', char_span.start, span_start_idx, sentence[: char_span.start])
