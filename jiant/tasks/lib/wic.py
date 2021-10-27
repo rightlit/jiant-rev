@@ -48,8 +48,9 @@ class Example(BaseExample):
                 target_span (ExclusiveSpane): token span for sentence
             """
             
-            print('##### tokenize_span(), start/idx/sentence : ', char_span.start, span_start_idx, sentence[: char_span.start])
             span_start_idx = len(sentence[: char_span.start].split())
+            print('##### tokenize_span(), start/idx/sentence : ', char_span.start, span_start_idx, sentence[: char_span.start])
+
             # If the first word in a span starts with punctuation, the first word will
             # erroneously be split into two strings by .split().
             # ie: 'takeaway' -> ["'", "takeaway"]
