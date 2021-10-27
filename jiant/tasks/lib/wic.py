@@ -57,7 +57,7 @@ class Example(BaseExample):
             span_text = sentence[char_span.start : char_span.end]
             # added code
             if(char_span.start == 0 or span_start_idx == 0):
-                print('##### tokenize_span() : char_span.start, idx', char_span.start, span_start_idx)
+                print('##### 0 index FOUND!!! tokenize_span() : char_span.start, idx', char_span.start, span_start_idx)
                 sentence = span_text + " " + sentence
                  
             sentence_space_tokenization = sentence.split()
@@ -70,7 +70,7 @@ class Example(BaseExample):
             )
             span_start_char = len(" ".join(sentence_normed_space_tokenization[:span_start_idx]))
             span_text_char = len(span_text)
-            print('##### tokenize_span() : ', span_start_char, span_text_char, span_text)
+            print('##### tokenize_span() start/span/char : ', span_start_char, span_text_char, span_text)
             print('##### sentence_normed_space_tokenization: ', sentence_normed_space_tokenization)
             print('##### sentence_normed_target_tokenization: ', sentence_normed_target_tokenization)
 
