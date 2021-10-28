@@ -64,7 +64,7 @@ class CopaTask(SuperGlueMixin, mc_template.AbstractMultipleChoiceTask):
         }        
         '''
         _QUESTION_DICT = {
-            "원인": "이것의 원인은",
+            "원인": "그렇게 한 이유는",
             "결과": "그래서 결과는",
         }        
         
