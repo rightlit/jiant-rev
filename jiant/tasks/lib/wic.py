@@ -89,7 +89,7 @@ class Example(BaseExample):
             if(exception_flag and span_start_char <= 5):
                 span_start_char =  char_span.start
             # added code (for exception)
-            if(exception_flag and span_text_char == 1):
+            if(exception_flag and span_text_char <= 2):
                 #span_text_char = span_text_char + 1
                 span_start_char =  span_start_char - 1
 
