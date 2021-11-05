@@ -194,9 +194,13 @@ def run_loop(args: RunConfiguration, checkpoint=None):
             test_results_dict = runner.run_test(
                 task_name_list=runner.jiant_task_container.task_run_config.test_task_list,
             )
+            print('test_task_list :', runner.jiant_task_container.task_run_config.test_task_list)
+            suffix = runner.jiant_task_container.task_run_config.test_task_list
+            output_file = "test_preds.p." + suffix
+            #output_file = os.path.join(args.output_dir, filename)
             jiant_evaluate.write_preds(
                 eval_results_dict=test_results_dict,
-                path=os.path.join(args.output_dir, "test_preds.p"),
+                path=os.path.join(args.output_dir, output_file),
             )
 
     if (
