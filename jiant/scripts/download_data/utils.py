@@ -36,28 +36,28 @@ def convert_hf_dataset_to_examples(
         if(name == 'cola'):
             # column_names =['source',	'acceptability_label',	'source_annotation',	'sentence']
             dataset = datasets.load_dataset('csv', 
-                data_files={'train': '/content/NIKL_CoLA_train.tsv', 'validation': '/content/NIKL_CoLA_dev.tsv', 'test': '/content/NIKL_CoLA_test.tsv'}, 
+                data_files={'train': 'dataset/NIKL_CoLA_train.tsv', 'validation': 'dataset/NIKL_CoLA_dev.tsv', 'test': 'dataset/NIKL_CoLA_test.tsv'}, 
                 delimiter='\t',
                 column_names =['idx',	'label',	'source_annotation',	'sentence'],
                 skiprows=1)
         elif(name == 'copa'):
             # column_names =['ID', 'sentence',	'question',	'1',	'2', 'Answer']
             dataset = datasets.load_dataset('csv', 
-                data_files={'train': '/content/SKT_COPA_Train.tsv', 'validation': '/content/SKT_COPA_Dev.tsv', 'test': '/content/SKT_COPA_Test.tsv'}, 
+                data_files={'train': 'dataset/SKT_COPA_Train.tsv', 'validation': 'dataset/SKT_COPA_Dev.tsv', 'test': 'dataset/SKT_COPA_Test.tsv'}, 
                 delimiter='\t',
                 column_names =['idx', 'premise',	'question',	'choice1',	'choice2', 'label'],
                 skiprows=1)
         elif(name == 'wic'):
             # column_names =['ID', 'Target',	'SENTENCE1',	'SENTENCE2',	'ANSWER', 'start_s1', 'end_s1', 'start_s2', 'end_s2']
             dataset = datasets.load_dataset('csv', 
-                data_files={'train': '/content/NIKL_SKT_WiC_Train.tsv', 'validation': '/content/NIKL_SKT_WiC_Dev.tsv', 'test': '/content/NIKL_SKT_WiC_Test.tsv'}, 
+                data_files={'train': 'dataset/NIKL_SKT_WiC_Train.tsv', 'validation': 'dataset/NIKL_SKT_WiC_Dev.tsv', 'test': 'dataset/NIKL_SKT_WiC_Test.tsv'}, 
                 delimiter='\t',
                 column_names =['idx', 'word',	'sentence1',	'sentence2',	'label', 'start1', 'end1', 'start2', 'end2'],
                 skiprows=1)
         elif(name == 'boolq'):
             # column_names =['ID', 'Text',	'Question',	'Answer']
             dataset = datasets.load_dataset('csv', 
-                data_files={'train': '/content/SKT_BoolQ_Train.tsv', 'validation': '/content/SKT_BoolQ_Dev.tsv', 'test': '/content/SKT_BoolQ_Test.tsv'}, 
+                data_files={'train': 'dataset/SKT_BoolQ_Train.tsv', 'validation': 'dataset/SKT_BoolQ_Dev.tsv', 'test': 'dataset/SKT_BoolQ_Test.tsv'}, 
                 delimiter='\t',
                 column_names =['idx', 'passage',	'question',	'label'],
                 skiprows=1)
