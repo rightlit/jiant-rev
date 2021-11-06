@@ -6,8 +6,10 @@ lxml==4.6.3
 datasets==1.15.1
 nltk>=3.5
 numexpr==2.7.1
-numpy==1.18.4
-pandas==1.0.3
+#numpy==1.18.4
+numpy==1.19.5
+#pandas==1.0.3
+pandas==1.1.5
 #python-Levenshtein==0.12.0
 Levenshtein==0.16.0
 sacremoses==0.0.43
