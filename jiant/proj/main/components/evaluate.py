@@ -60,8 +60,8 @@ def write_preds(eval_results_dict, path, verbose=True):
             "guids": task_results_dict["accumulator"].get_guids(),
         }
         print('##### write_preds(), task_name: ', task_name, len(task_results_dict["preds"]))
-        print(task_results_dict["preds"])
-        print(task_results_dict["accumulator"].get_guids())
+        #print(task_results_dict["preds"])
+        #print(task_results_dict["accumulator"].get_guids())
         preds_list = task_results_dict["preds"]
         guids_list = task_results_dict["accumulator"].get_guids()
         preds_dic_list = []
@@ -83,7 +83,7 @@ def write_preds(eval_results_dict, path, verbose=True):
             e_dic['idx'] = int(id)
             e_dic['label'] = label
             preds_dic_list.append(e_dic)
-        print('##### preds_dic_list: ', preds_dic_list)
+        #print('##### preds_dic_list: ', preds_dic_list)
         output_preds_dict[task_name] = preds_dic_list
         
     #torch.save(preds_dict, path)
