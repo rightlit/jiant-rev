@@ -195,7 +195,8 @@ def run_loop(args: RunConfiguration, checkpoint=None):
                 task_name_list=runner.jiant_task_container.task_run_config.test_task_list,
             )
             print('test_task_list :', runner.jiant_task_container.task_run_config.test_task_list)
-            suffix = runner.jiant_task_container.task_run_config.test_task_list
+            test_task_list = runner.jiant_task_container.task_run_config.test_task_list
+            suffix = test_task_list[0]
             output_file = "test_preds.p." + suffix
             #output_file = os.path.join(args.output_dir, filename)
             jiant_evaluate.write_preds(
