@@ -5,7 +5,7 @@ import jiant.scripts.download_data.runscript as downloader
 EXP_DIR = "/content/jiant-rev/exp"
 
 # Download the Data
-downloader.download_data(["copa"], f"{EXP_DIR}/tasks")
+downloader.download_data(["cola"], f"{EXP_DIR}/tasks")
 
 # Set up the arguments for the Simple API
 args = run.RunConfiguration(
