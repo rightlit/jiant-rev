@@ -9,7 +9,7 @@ numexpr==2.7.1
 numpy==1.18.4
 pandas==1.0.3
 #python-Levenshtein==0.12.0
-python-Levenshtein==0.16.0
+Levenshtein==0.16.0
 sacremoses==0.0.43
 #seqeval==0.0.12
 seqeval==1.2.2
