@@ -52,7 +52,7 @@ class Example(BaseExample):
             #exception_flag = False
             
             span_start_idx = len(sentence[: char_span.start].split())
-            print('##### tokenize_span(), start/idx/sentence : ', char_span.start, span_start_idx, sentence[: char_span.start])
+            #print('##### tokenize_span(), start/idx/sentence : ', char_span.start, span_start_idx, sentence[: char_span.start])
 
             # If the first word in a span starts with punctuation, the first word will
             # erroneously be split into two strings by .split().
@@ -64,7 +64,7 @@ class Example(BaseExample):
             
             # added code (for exception)
             if(exception_flag and (char_span.start == 0 or span_start_idx == 0)):
-                print('##### 0 index FOUND!!! tokenize_span() : char_span.start, idx', char_span.start, span_start_idx)
+                #print('##### 0 index FOUND!!! tokenize_span() : char_span.start, idx', char_span.start, span_start_idx)
                 sentence = span_text + " " + sentence
                 span_start_idx = span_start_idx + len(span_text)  # increase start_idx
                  
@@ -80,10 +80,10 @@ class Example(BaseExample):
             #span_start_char = len(" ".join(sentence_normed_space_tokenization[:span_start_idx]))
             span_start_char = len(span_text_concat)
             span_text_char = len(span_text)
-            print('##### tokenize_span() CONCAT sentence_normed_space_tokenization : ', span_text_concat)
-            print('##### tokenize_span() start/span/char : ', span_start_char, span_text_char, span_text)
-            print('##### sentence_normed_space_tokenization: ', sentence_normed_space_tokenization)
-            print('##### sentence_normed_target_tokenization: ', sentence_normed_target_tokenization)
+            #print('##### tokenize_span() CONCAT sentence_normed_space_tokenization : ', span_text_concat)
+            #print('##### tokenize_span() start/span/char : ', span_start_char, span_text_char, span_text)
+            #print('##### sentence_normed_space_tokenization: ', sentence_normed_space_tokenization)
+            #print('##### sentence_normed_target_tokenization: ', sentence_normed_target_tokenization)
 
             '''
             if(exception_flag and span_start_char <= 5):
@@ -115,11 +115,11 @@ class Example(BaseExample):
         sentence1_target_tokenization, target_span1 = tokenize_span(
             tokenizer, self.sentence1, self.span1
         )
-        print('##### target_span1: ',target_span1) 
+        #print('##### target_span1: ',target_span1) 
         sentence2_target_tokenization, target_span2 = tokenize_span(
             tokenizer, self.sentence2, self.span2
         )
-        print('##### target_span2: ',target_span2) 
+        #print('##### target_span2: ',target_span2) 
 
         return TokenizedExample(
             guid=self.guid,
