@@ -13,7 +13,7 @@
 jiant 를 수정한 부분은 아래와 같습니다.
 
 ### 예제 수정
-1. Fast 모델/토크나이저 추가 : 
+1. ElectraFast 모델/토크나이저 추가 : 
     - 모듈 : ./jiant/shared/model_resolution.py
         - 변수 : TOKENIZER_CLASS_DICT
             - ElectraFastTokenizer 추가
