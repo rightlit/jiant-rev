@@ -89,13 +89,13 @@ import jiant.utils.python.io as py_io
 
 def merge_results_all():
     data_dir = 'exp/runs/simple'
-#    result_files_dic = {'cola':'test_preds.p.cola', 
-#                'copa':'test_preds.p.copa', 
-#                'wic':'test_preds.p.wic',
-#                'boolq':'test_preds.p.boolq'}
     result_files_dic = {'cola':'test_preds.p.cola', 
-                'copa':'test_preds.p.copa'
-                  }
+                'copa':'test_preds.p.copa', 
+                'wic':'test_preds.p.wic',
+                'boolq':'test_preds.p.boolq'}
+#    result_files_dic = {'cola':'test_preds.p.cola', 
+#                'copa':'test_preds.p.copa'
+#                  }
 
     preds_output_dic = {}
     for task_name, result_file in result_files_dic.items():
@@ -111,9 +111,14 @@ def merge_results_all():
     with open(output_path, "w") as f:
         json.dump(preds_output_dic, f, indent=2)
 
+# CoLA
 predict_cola()
+# COPA
 predict_copa()
-#predict_wic()
-#predict_boolq()
+# WiC
+predict_wic()
+# BoolQ
+predict_boolq()
 
+# merge json output
 merge_results_all()
