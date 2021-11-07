@@ -1,18 +1,17 @@
-#가져올 이미지
-FROM python:3.7-alpine
+#FROM ubuntu:latest
+FROM ubuntu:20.04
+MAINTAINER jeongwook_lee "rightlit@gmail.com"
 
-# app 디렉토리 선정
-#RUN mkdir /opt/app
-#RUN git clone https://github.com/rightlit/jiant-rev /opt/app
+#RUN apt-get update -y
+RUN apt-get update -y && apt-get upgrade -y
 
-#WORKDIR /opt/app
-#COPY ./requirements.txt .
-#COPY ./requirements-no-torch.txt .
-COPY . .
+#RUN apt-get install -y python-pip python-dev build-essential
+RUN apt-get install -y python3 python3-pip python3-dev build-essential
+RUN ln -s /usr/bin/python3 /usr/bin/python
+#RUN ln -s /usr/bin/pip3 /usr/bin/pip
 
-#WORKDIR /opt/app/jiant-rev
+COPY . /app
+WORKDIR /app
 RUN pip install -r requirements.txt
-
-CMD ["run_task_all.py"]
-
 ENTRYPOINT ["python"]
+CMD ["run_task_all.py"]
