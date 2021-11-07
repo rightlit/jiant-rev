@@ -21,7 +21,7 @@ jiant 를 수정한 부분은 아래와 같습니다.
         - 함수 : @JiantTransformersModelFactory.register()
             - 모델 등록
 
-2. task 데이터셋 로드 : 
+2. task 데이터셋 로드(NIKL) : 
     - 모듈 : ./jiant/scripts/download_data/utils.py
         - 함수 : convert_hf_dataset_to_examples()
             - 데이터셋 로드 변경
@@ -29,7 +29,7 @@ jiant 를 수정한 부분은 아래와 같습니다.
         - 변수 : HF_DATASETS_CONVERSION_DICT
             - task 데이터셋 칼럼요소 변경(cola, copa, wic, boolq)
 
-3. 평가결과 제출
+3. 평가결과 제출(JSON)
     - 모듈 : ./jiant/proj/main/components/evaluate.py
         - 함수 : write_preds()
             - ID, 결과 포멧
