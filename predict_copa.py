@@ -2,7 +2,8 @@
 from jiant.proj.simple import runscript as run
 import jiant.scripts.download_data.runscript as downloader
 
-EXP_DIR = "/content/jiant-rev/exp"
+#EXP_DIR = "/content/jiant-rev/exp"
+EXP_DIR = "./exp"
 
 # Download the Data
 downloader.download_data(["copa"], f"{EXP_DIR}/tasks")

@@ -4,7 +4,9 @@ import json
 import os
 import jiant.utils.python.io as py_io
 
-data_dir = '/content/jiant-rev/exp/runs/simple'
+#data_dir = '/content/jiant-rev/exp/runs/simple'
+data_dir = './exp/runs/simple'
+
 result_files_dic = {'cola':'test_preds.p.cola', 
                 'copa':'test_preds.p.copa', 
                 'wic':'test_preds.p.wic',
