@@ -1,10 +1,11 @@
-# write predictions to file (cola)
+# run_task_all (cola, copa, wic, boolq)
 from jiant.proj.simple import runscript as run
 import jiant.scripts.download_data.runscript as downloader
 
 EXP_DIR = "exp"
 MODEL_PATH = "monologg/koelectra-base-v3-discriminator"
 
+# predictions to file (cola)
 def predict_cola():
     # Download the Data
     downloader.download_data(["cola"], f"{EXP_DIR}/tasks")
@@ -24,6 +25,7 @@ def predict_cola():
     # Run!
     run.run_simple(args)
 
+# predictions to file (copa)
 def predict_copa():
     # Download the Data
     downloader.download_data(["copa"], f"{EXP_DIR}/tasks")
@@ -43,6 +45,7 @@ def predict_copa():
     # Run!
     run.run_simple(args)
 
+# predictions to file (wic)
 def predict_wic():
     # Download the Data
     downloader.download_data(["wic"], f"{EXP_DIR}/tasks")
@@ -62,6 +65,7 @@ def predict_wic():
     # Run!
     run.run_simple(args)
 
+# predictions to file (boolq)
 def predict_boolq():
     # Download the Data
     downloader.download_data(["boolq"], f"{EXP_DIR}/tasks")
@@ -93,9 +97,6 @@ def merge_results_all():
                 'copa':'test_preds.p.copa', 
                 'wic':'test_preds.p.wic',
                 'boolq':'test_preds.p.boolq'}
-#    result_files_dic = {'cola':'test_preds.p.cola', 
-#                'copa':'test_preds.p.copa'
-#                  }
 
     preds_output_dic = {}
     for task_name, result_file in result_files_dic.items():
@@ -111,6 +112,8 @@ def merge_results_all():
     with open(output_path, "w") as f:
         json.dump(preds_output_dic, f, indent=2)
 
+# BEGIN_MAIN
+#
 # CoLA
 predict_cola()
 # COPA
