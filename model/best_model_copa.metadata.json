@@ -1,0 +1,27 @@
+{
+  "val_state": {
+    "score": 0.838,
+    "metrics": {
+      "copa": {
+        "major": 0.838,
+        "minor": {
+          "acc": 0.838
+        }
+      }
+    },
+    "train_state": {
+      "global_steps": 579,
+      "task_steps": {
+        "copa": 579
+      }
+    }
+  },
+  "val_metrics": {
+    "copa": {
+      "major": 0.838,
+      "minor": {
+        "acc": 0.838
+      }
+    }
+  }
+}

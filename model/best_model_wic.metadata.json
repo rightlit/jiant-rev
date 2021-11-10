@@ -1,0 +1,27 @@
+{
+  "val_state": {
+    "score": 0.784,
+    "metrics": {
+      "wic": {
+        "major": 0.784,
+        "minor": {
+          "acc": 0.784
+        }
+      }
+    },
+    "train_state": {
+      "global_steps": 1455,
+      "task_steps": {
+        "wic": 1455
+      }
+    }
+  },
+  "val_metrics": {
+    "wic": {
+      "major": 0.784,
+      "minor": {
+        "acc": 0.784
+      }
+    }
+  }
+}

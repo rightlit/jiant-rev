@@ -1,0 +1,27 @@
+{
+  "val_state": {
+    "score": 0.531852928350675,
+    "metrics": {
+      "cola": {
+        "major": 0.531852928350675,
+        "minor": {
+          "mcc": 0.531852928350675
+        }
+      }
+    },
+    "train_state": {
+      "global_steps": 2979,
+      "task_steps": {
+        "cola": 2979
+      }
+    }
+  },
+  "val_metrics": {
+    "cola": {
+      "major": 0.531852928350675,
+      "minor": {
+        "mcc": 0.531852928350675
+      }
+    }
+  }
+}
