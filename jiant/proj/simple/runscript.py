@@ -227,7 +227,8 @@ def run_simple(args: RunConfiguration, with_continue: bool = False):
             ),
             model_load_mode=model_load_mode,
             # === Running Setup === #
-            do_train=bool(args.train_tasks),
+            #do_train=bool(args.train_tasks),
+            do_train=bool(args.do_train),
             do_val=bool(args.val_tasks),
             do_save=args.do_save,
             do_save_best=args.do_save_best,
