@@ -55,6 +55,9 @@ class RunConfiguration(zconf.RunConfig):
     force_overwrite = zconf.attr(action="store_true")
     seed = zconf.attr(type=int, default=-1)
 
+    # added code
+    do_train = zconf.attr(action="store_true")
+
     # === Training Learning Parameters === #
     learning_rate = zconf.attr(default=1e-5, type=float)
     adam_epsilon = zconf.attr(default=1e-8, type=float)
