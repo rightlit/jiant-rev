@@ -19,7 +19,9 @@ def predict_cola():
        tasks="cola",
        train_batch_size=16,
        num_train_epochs=3,
-       write_test_preds=True
+       write_test_preds=True,
+       model_weights_path='model/best_model_cola.p',
+       do_train=False,
     )
 
     # Run!
@@ -39,7 +41,9 @@ def predict_copa():
        tasks="copa",
        train_batch_size=16,
        num_train_epochs=3,
-       write_test_preds=True
+       write_test_preds=True,
+       model_weights_path='model/best_model_copa.p',
+       do_train=False,
     )
 
     # Run!
@@ -59,7 +63,9 @@ def predict_wic():
        tasks="wic",
        train_batch_size=16,
        num_train_epochs=3,
-       write_test_preds=True
+       write_test_preds=True,
+       model_weights_path='model/best_model_wic.p',
+       do_train=False,
     )
 
     # Run!
@@ -79,7 +85,9 @@ def predict_boolq():
        tasks="boolq",
        train_batch_size=16,
        num_train_epochs=3,
-       write_test_preds=True
+       write_test_preds=True,
+       model_weights_path='model/best_model_boolq.p',
+       do_train=False,
     )
 
     # Run!
